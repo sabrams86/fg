@@ -4,11 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session');
+var flash = require('connect-flash');
+var bcrypt = require('bcryptjs');
+var mongoose = require('mongoose');
+
+require('dotenv').load()
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+//use static angular views instead
+app.use(express.static(__dirname + '/public/views'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
