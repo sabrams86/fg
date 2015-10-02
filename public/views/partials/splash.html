@@ -1,0 +1,37 @@
+<header>
+  <div class='container'>
+    <h2 class='title left'>FriendlyGear
+      <small> a place for friends with gear</small>
+    </h2>
+    <div class="usermenu right">
+      Login
+      <form method='post' action='/login'>
+        <div class='row'>
+          <input class='sml' type='text' name='username' placeholder='username'>
+          <input class='sml' type='password' name='password' placeholder='password'>
+        </div>
+        <div class='row'>
+          <input class='sml' type='submit' value='Login'>
+           or
+          <a href='/users/new'> Sign Up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</header>
+<main>
+  <div class='splash container'>
+    <form class="splash-form" action="index.html" method="post">
+      <input type="date" name="mainSearch[startDate]">
+      <input type="date" name="mainSearch[endDate]">
+      <select name="mainSearch[activity]">
+        <option value="option">Backpacking</option>
+        <option value="option">Skiing</option>
+        <option value="option">Biking</option>
+        <option value="option">Kayaking</option>
+      </select>
+      <input type="text" name="mainSearch[location]">
+      <button class="btn" type="submit">Search</button>
+    </form>
+  </div>
+</main>

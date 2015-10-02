@@ -1,0 +1,25 @@
+.listing {
+  display: inline-block;
+  width: 285px;
+  text-align: center;
+  background-color: rgba($green, 0.7);
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+.gearthumbnail {
+  height: 100px;
+  border: 2px solid $grey;
+}
+.usermenu {
+  padding-top: 0;
+  margin-top: 0;
+}
+.title {
+  margin-top: 0;
+  a{
+    text-decoration: none;
+  }
+}

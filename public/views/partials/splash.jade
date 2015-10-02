@@ -1,0 +1,27 @@
+header
+  .container
+    h2.title.left
+      | FriendlyGear
+      small  a place for friends with gear
+    .usermenu.right
+      | Login
+      form(method='post', action='/login')
+        .row
+          input.sml(type='text', name='username', placeholder='username')
+          input.sml(type='password', name='password', placeholder='password')
+        .row
+          input.sml(type='submit', value='Login')
+          |            or
+          a(href='/users/new')  Sign Up
+main
+  .splash.container
+    form.splash-form(action='index.html', method='post')
+      input(type='date', name='mainSearch[startDate]')
+      input(type='date', name='mainSearch[endDate]')
+      select(name='mainSearch[activity]')
+        option(value='option') Backpacking
+        option(value='option') Skiing
+        option(value='option') Biking
+        option(value='option') Kayaking
+      input(type='text', name='mainSearch[location]')
+      button.btn(type='submit') Search

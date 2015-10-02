@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background: $white;
+  * {
+    box-sizing: border-box;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/images/nomad.JPG');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+header {
+  a{
+    color: $white;
+  }
+  height: 100px;
+  // background-image: url(./../images/nomad.jpeg);
+  // background-position: bottom;
+  // background-size: cover;
+  background-color: $blue;
+}
+footer {
+  height: 60px;
+  background-color: rgba($red, 1);
+}
+main {
+  min-height: 600px;
+  background-color: rgba($white, 0.7);
+  background-size: cover;
+  background-position: bottom;
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.container{
+  margin: 0 auto;
+  width: 960px;
+  height: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+}
+.sidemenu {
+  padding: 1em;
+  a {
+    color: $black;
+  }
+}
+.right{
+  float: right;
+}
+.left{
+  float: left;
+}
+.col6 {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+.col2 {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+}
+.clear {
+  clear: both;
+}
+.hidden {
+  display: none;
+}
+.block {
+  display: block;
+}
+.col8 {
+  display: inline-block;
+  vertical-align: top;
+  width: 60%;
+  box-sizing: border-box;
+  overflow: auto;
+  padding: 20px;
+}
+.noTop {
+  margin-top: 0;
+  padding-top: 0;
+}
+.info {
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+}
