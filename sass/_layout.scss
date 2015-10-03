@@ -27,7 +27,7 @@ header {
 }
 footer {
   height: 60px;
-  background-color: rgba($red, 1);
+  background-color: $red;
 }
 main {
   min-height: 600px;
@@ -60,16 +60,16 @@ body {
 .left{
   float: left;
 }
-.col6 {
-  display: inline-block;
-  vertical-align: top;
-  width: 50%;
-}
-.col2 {
-  display: inline-block;
-  vertical-align: top;
-  width: 20%;
-}
+// .col6 {
+//   display: inline-block;
+//   vertical-align: top;
+//   width: 50%;
+// }
+// .col2 {
+//   display: inline-block;
+//   vertical-align: top;
+//   width: 20%;
+// }
 .clear {
   clear: both;
 }
@@ -79,14 +79,14 @@ body {
 .block {
   display: block;
 }
-.col8 {
-  display: inline-block;
-  vertical-align: top;
-  width: 60%;
-  box-sizing: border-box;
-  overflow: auto;
-  padding: 20px;
-}
+// .col8 {
+//   display: inline-block;
+//   vertical-align: top;
+//   width: 60%;
+//   box-sizing: border-box;
+//   overflow: auto;
+//   padding: 20px;
+// }
 .noTop {
   margin-top: 0;
   padding-top: 0;

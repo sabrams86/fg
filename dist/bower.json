@@ -1,6 +1,7 @@
 {
-  "name": "friendlygear",
+  "name": "dist",
   "version": "0.0.0",
+  "homepage": "https://github.com/sabrams86/fg",
   "authors": [
     "Steven Abrams <steven.abrams86@gmail.com>"
   ],
@@ -15,12 +16,12 @@
   "dependencies": {
     "angular-animate": "~1.4.6",
     "angular-cookies": "~1.4.6",
-    "angular-route": "~1.4.6",
-    "angular-touch": "~1.4.6",
     "angular-sanitize": "~1.4.6",
+    "angular-route": "~1.4.6",
+    "jquery": ">= 1.9.1",
     "angular": "~1.4.6",
-    "bootstrap": "~3.3.5",
+    "angular-touch": "~1.4.6",
     "normalize.css": "~3.0.3",
-    "material-design-icons": "~2.0.0"
+    "semantic-ui": "~2.1.4"
   }
 }

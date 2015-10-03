@@ -1,7 +1,74 @@
+#splash-page {
+  header, main, footer{
+    background-color: rgba(255,255,255,0);
+  }
+  main{
+    min-height: 500px;
+  }
+  footer{
+    text-align: center;
+    height: 100px;
+    color: $white;
+  }
+}
 .splash {
   text-align: center;
+  label{
+    font-size: 1.25em;
+  }
 }
 .splash-search-button {
   display: block;
   margin: 0 auto;
+}
+
+.title {
+  small{
+    color: $blue;
+  }
+  color: $blue;
+  margin-top: 0;
+  a{
+    text-decoration: none;
+  }
+}
+.splash-form {
+  margin-top: 120px;
+  select {
+    width: 100%;
+  }
+  input {
+    width: 100%;
+  }
+  button{
+    width: 75%;
+    border: 1px solid $green;
+    border-radius: 5px;
+    margin: 5px auto;
+    background-color: $red;
+    color: $white;
+    outline: none;
+    font-weight: 400;
+    height: 2em;
+    padding: 5px;
+  }
+  button:focus{
+    border: 1px solid $black;
+  }
+  button:hover{
+    background-color: $green;
+    color: $white;
+    border: 1px solid $blue
+  }
+  button:focus{
+    background-color: $white;
+    color: $green;
+    border: 1px solid $green;
+  }
+  button{
+    font-size: 1.2em;
+  }
+}
+.grey {
+  color: $grey;
 }

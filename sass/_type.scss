@@ -1,5 +1,5 @@
-@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
-@import url('http://fonts.googleapis.com/css?family=Overlock:400,700,900');
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Overlock:400,700,900);
 
 html {font-size: 1em;}
 
@@ -41,7 +41,7 @@ font-size: 1.086em}
 
 small, .font_small {
   font-size: 0.5em;
-  color: white;
+  color: $white;
 }
 
 a{

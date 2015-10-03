@@ -1,27 +1,54 @@
-header
-  .container
-    h2.title.left
-      | FriendlyGear
-      small  a place for friends with gear
-    .usermenu.right
-      | Login
-      form(method='post', action='/login')
+#splash-page
+  header.splash-header
+    .container
+      h2.title.left
+        | FriendlyGear
+        small  a place for friends with gear
+      .usermenu.right
+        | Login
+        form(method='post', action='/login')
+          .row
+            input.sml(type='text', name='username', placeholder='username')
+            input.sml(type='password', name='password', placeholder='password')
+          .row
+            input.sml(type='submit', value='Login')
+            |            or
+            a.grey(href='/users/new')  Sign Up
+  main.splash-main
+    .splash.container
+      .splash-form.ui.three.column.grid
         .row
-          input.sml(type='text', name='username', placeholder='username')
-          input.sml(type='password', name='password', placeholder='password')
+          .column
+            label(for='when') When do you want to go?
+          .column
+            label(for='what') What do you want to do?
+          .column
+            label(for='where') Where do you want to do it?
         .row
-          input.sml(type='submit', value='Login')
-          |            or
-          a(href='/users/new')  Sign Up
-main
-  .splash.container
-    form.splash-form(action='index.html', method='post')
-      input(type='date', name='mainSearch[startDate]')
-      input(type='date', name='mainSearch[endDate]')
-      select(name='mainSearch[activity]')
-        option(value='option') Backpacking
-        option(value='option') Skiing
-        option(value='option') Biking
-        option(value='option') Kayaking
-      input(type='text', name='mainSearch[location]')
-      button.btn(type='submit') Search
+          .column
+            .ui.two.column.grid
+              .column
+                input(type='date', name='mainSearch[startDate]')
+              .column
+                input(type='date', name='mainSearch[endDate]')
+          .column
+            select(name='mainSearch[activity]')
+              option(value="")
+              option(value='option') Backpacking
+              option(value='option') Skiing
+              option(value='option') Biking
+              option(value='option') Kayaking
+          .column
+            input(type='text', name='mainSearch[location]')
+        .row
+          .column
+          .column
+            button.row.btn(type="button" ng-click="search()") Search
+  footer#splash-footer
+    a(href='#') How it works
+    |  | 
+    a(href='#') Sign up
+    |  | 
+    a(href='#') Log in
+    |  | 
+    a(href='#') Browse all gear

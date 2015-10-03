@@ -34,10 +34,10 @@ gulp.task('scripts', function() {
 
 gulp.task('css', function () {
   return gulp.src('sass/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(getsassy().on('error', getsassy.logError))
-    .pipe(gulp.dest('public/stylesheets'))
-    .pipe(minifycss())
     .pipe(rename('style.min.css'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'))
 })
 
