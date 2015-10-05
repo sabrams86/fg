@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('./../controllers/index_controller');
+var dblib = require('./../lib/db_lib');
 
 router.get('/', db.index);
 

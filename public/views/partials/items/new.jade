@@ -1,0 +1,24 @@
+extends ./../../layout
+
+block content
+  h1 Enter your gear details
+
+  form.ui.form(ng-submit="createItem()")
+    .fields
+      .field
+        label Name
+        input(type='text' ng-model="name")
+        .field
+        label Brand
+        input(type='text' ng-model="brand")
+    .field
+      label Date Purchased
+      input(type='date' ng-model="datePurchased")
+    .field
+      label Condition
+      input(type='text' ng-model="condition")
+    .field
+      button(type='submit') Create Item
+    //- 
+    //- categories: Array,
+    //- imageUrl: String,

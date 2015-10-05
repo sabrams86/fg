@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var auth = require('./../lib/authorization');
-var db = require('./../controllers/contract_controller');
+var dblib = require('./../lib/db_lib');
 
 //NEW
 router.get('/contracts/new', db.newpage)

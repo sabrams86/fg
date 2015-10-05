@@ -20,6 +20,14 @@ var categories = require('./routes/categories');
 
 var app = express();
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3474');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+
 app.set('trust proxy', 1) // trust first proxy
 
 app.use(cookieSession({
@@ -40,6 +48,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(allowCrossDomain);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/dist',  express.static(__dirname + '/dist'));
@@ -56,17 +65,19 @@ app.use('/', routes);
 app.use('/', auth);
 app.use('/', users);
 app.use('/', categories);
+app.use('/', items);
+app.use('/', contracts);
 
-app.use('/users/:userId', function (req, res, next) {
-  res.locals.owner_id = req.params.userId;
-  next();
-}, items);
-
-app.use('/users/:userId/items/:itemId', function (req, res, next) {
-  res.locals.owner_id = req.params.userId;
-  res.locals.item_id = req.params.itemId;
-  next();
-}, contracts);
+// app.use('/users/:userId', function (req, res, next) {
+//   res.locals.owner_id = req.params.userId;
+//   next();
+// }, items);
+//
+// app.use('/users/:userId/items/:itemId', function (req, res, next) {
+//   res.locals.owner_id = req.params.userId;
+//   res.locals.item_id = req.params.itemId;
+//   next();
+// }, contracts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

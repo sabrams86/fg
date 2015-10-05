@@ -1,0 +1,49 @@
+header
+  .container
+    h2.title.left 
+      a(href='/home') Friendly Gear
+      small  a place for friends with gear
+main
+  .sidemenu.left
+  .container
+    h1 Sign up as a new user
+    form.ui.form(ng-submit="signUp()" name='userForm')
+      .fields
+        .field
+          label(for='username') Username
+          input#username(type='text' name='user[username]' ng-model='username' value=(user ? user.username: ''))
+        .field  
+          label(for='email') Email
+          input#email(type='email' name='user[email]' ng-model='email' value=(user ? user.email: ''))
+        .field  
+          label(for='name') Name
+          input#name(type='text' name='user[name]' ng-model='name' value=(user ? user.name: ''))
+      .fields
+        .field  
+          label(for='city') City
+          input#city(type='text' name='user[city]' ng-model='city' value=(user ? user.city: ''))
+        .field  
+          label(for='name') State
+          input#state(type='text' name='user[state]' ng-model='state' value=(user ? user.state: ''))
+        .field  
+          label(for='zip') Zipcode
+          input#zip(type='text' name='user[zip]' ng-model='zip' value=(user ? user.zip: ''))
+      .fields
+        .field  
+          label(for='avatarUrl') Profile Pic (URL)
+          input#avatarUrl(type='url' name='user[avatarUrl]' ng-model='avatarUrl' value=(user ? user.avatarUrl: ''))
+      .fields
+        .field  
+          label(for='password') Password
+          input#password(type='password' name='user[password]' ng-model='password')
+      .fields
+        .field  
+          label(for='passwordconfirm') Password Confirmation
+          input#passwordconfirm(type='password' name='user[passwordconfirm]' ng-model='passwordconfirm')
+      .field  
+        .empty
+        button(type='submit') Submit
+          a.dark(href='/') Back
+footer.clear
+  .container
+script(src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js")

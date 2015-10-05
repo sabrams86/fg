@@ -61,3 +61,10 @@ a:hover {
 .bold {
   font-weight: 700;
 }
+#title {
+    color: $white;
+  margin-top: 0;
+  a{
+    text-decoration: none;
+  }
+}

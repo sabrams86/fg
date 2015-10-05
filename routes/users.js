@@ -1,27 +1,47 @@
 var express = require('express');
 var router = express.Router();
 var auth = require('./../lib/authorization');
-var db = require('./../controllers/user_controller');
-
-//INDEX
-router.get('/users', auth.authorizeUser, db.index);
-
-//NEW
-router.get('/users/new', db.newpage);
+var dblib = require('./../lib/db_lib');
 
 //SHOW
-router.get('/users/:userId', auth.authorizeUser, db.show);
-
-//EDIT
-router.get('/users/:userId/edit', auth.authorizeUser, db.edit);
+router.get('/users/:userId', auth.authorizeUser, function(req, res, next) {
+  dblib.findOneUser(req.params.userId).then(function (result) {
+    res.json(result);
+  });
+});
 
 //CREATE
-router.post('/users', db.create);
+router.post('/users', function(req, res, next) {
+  dblib.validateUser(req.body.user).then(function () {
+    dblib.createUser(req.body.user).then(function (result) {
+      req.session.user = result._id;
+      res.json(result);
+    });
+  }, function (errors) {
+    res.json({user_id: req.params.userId, user: req.body.user, errors: errors});
+  });
+});
 
 //UPDATE
-router.post('/users/:userId', auth.authorizeUser, db.update);
+router.post('/users/:userId', auth.authorizeUser, function(req, res, next) {
+  dblib.validateUserUpdate(req.body.user).then(function () {
+    dblib.findOneUser(req.params.userId).then(function (user) {
+      dblib.updateUser(req.body.user, user.password).then(function (result) {
+        res.json(result);
+      })
+    })
+  }, function(errors) {
+    res.json({user_id: req.params.userId, user: req.body.user, errors: errors});
+  });
+});
 
 //DELETE
-router.post('/users/:userId/delete', auth.authorizeUser, db.destroy);
+router.post('/users/:userId/delete', auth.authorizeUser, function(req, res, next) {
+  dblib.removeItemsByUser(req.params.userId).then(dblib.removeContractsByUser(req.params.userId))
+  .then(dblib.removeUser(req.params.userId)).then(function () {
+    req.session = null;
+    res.json("deleted");
+  });
+});
 
 module.exports = router;

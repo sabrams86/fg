@@ -13,7 +13,7 @@
           .row
             input.sml(type='submit', value='Login')
             |            or
-            a.grey(href='/users/new')  Sign Up
+            a.grey(ng-click='signUp()')  Sign Up
   main.splash-main
     .splash.container
       .splash-form.ui.three.column.grid
@@ -47,7 +47,7 @@
   footer#splash-footer
     a(href='#') How it works
     |  | 
-    a(href='#') Sign up
+    a(href='#' ng-click="signUp()") Sign up
     |  | 
     a(href='#') Log in
     |  | 

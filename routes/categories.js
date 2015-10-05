@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('./../controllers/category_controller');
+var dblib = require('./../lib/db_lib');
 
 //INDEX
 router.get('/categories', db.index);

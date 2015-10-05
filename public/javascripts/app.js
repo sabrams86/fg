@@ -8,7 +8,19 @@ app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProv
     })
     .when('/home', {
       templateUrl: '/partials/home.html',
-      controller: 'SplashController'
+      controller: 'HomeController'
+    })
+    .when('/signup', {
+      templateUrl: '/partials/signup.html',
+      controller: 'SignUpController'
+    })
+    .when('/items/new', {
+      templateUrl: '/partials/items/new.html',
+      controller: 'ItemsController'
+    })
+    .when('/items/:id', {
+      templateUrl: '/partials/items/show.html',
+      controller: 'ItemsController'
     })
     .otherwise({redirectTo: '/'});
   $locationProvider.html5Mode(true);
