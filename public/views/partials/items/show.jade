@@ -2,3 +2,13 @@ extends ./../../layout
 
 block content
   h1 woo stuff
+  h4 Name
+  p {{item.name}}
+  h4 Brand
+  p {{item.brand}}
+  h4 Condition
+  p {{item.condition}}
+  h4 Date Purchased
+  p {{item.datePurchased}}
+  button(ng-click="editItem(item._id)") Edit Info
+  button(ng-click="deleteItem(item._id)") Delete Item

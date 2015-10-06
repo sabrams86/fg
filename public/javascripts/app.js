@@ -8,7 +8,7 @@ app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProv
     })
     .when('/home', {
       templateUrl: '/partials/home.html',
-      controller: 'HomeController'
+      controller: 'ItemsController'
     })
     .when('/signup', {
       templateUrl: '/partials/signup.html',
@@ -20,7 +20,11 @@ app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProv
     })
     .when('/items/:id', {
       templateUrl: '/partials/items/show.html',
-      controller: 'ItemsController'
+      controller: 'ShowItemController'
+    })
+    .when('/items/:id/edit', {
+      templateUrl: '/partials/items/edit.html',
+      controller: 'EditItemController'
     })
     .otherwise({redirectTo: '/'});
   $locationProvider.html5Mode(true);

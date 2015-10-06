@@ -1,5 +1,11 @@
 app.controller('ItemsController', ['$scope', '$cookies', '$location', 'ItemService',
 function ($scope, $cookies, $location, ItemService) {
+  $scope.newItem = function() {
+    $location.path('/items/new');
+  }
+  $scope.showItem = function () {
+
+  }
   $scope.createItem = function() {
     $scope.itemData = {
       'item': {
