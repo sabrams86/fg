@@ -8,7 +8,7 @@ app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProv
     })
     .when('/home', {
       templateUrl: '/partials/home.html',
-      controller: 'ItemsController'
+      controller: 'HomeController'
     })
     .when('/signup', {
       templateUrl: '/partials/signup.html',

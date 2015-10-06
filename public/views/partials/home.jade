@@ -1,42 +1,12 @@
-header
-  .container
-    h2.title.left 
-      a(href='/home') Friendly Gear
-      small  a place for friends with gear
-    //- if user_id
-    //-   .usermenu.right
-    //-     div
-    //-       a(href='/users/#{user_id}/edit') Edit Profile
-    //-     div
-    //-       a(href='/users/#{user_id}/items') My Gear 
-    //-     div  
-    //-       a(href='/logout') Logout
-    //- else
-    .usermenu.right
-      | Login
-      form(method='post' action='/login')
-        .row
-          input.sml(type='text' name='username' placeholder='username')
-          input.sml(type='password' name='password' placeholder='password')
-        .row
-          input.sml(type='submit' value='Login')
-          | or 
-          a(href='/users/new') Sign Up
-main
-  .sidemenu.left
-  .container
-    a(href='#' ng-click='newItem()') New Item
-    //- if flash
-    //-   include _flash
-    //- each item in items
-    //-   .listing
-    //-     p
-    //-       h6
-    //-         a(href='/users/#{item.userId}/items/#{item._id}')= item.name
-    //-     p= item.description
-    //-     if item.imageUrl
-    //-       a(href='/users/#{item.userId}/items/#{item._id}')
-    //-         img.gearthumbnail(src='#{item.imageUrl}' alt='broken image')
-footer.clear
-  .container
-script(src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js")
+extends ./../layout
+
+block content
+  a(href='#' ng-click='newItem()') New Item
+  .listing(ng-repeat="item in items track by $index")
+    p
+      h6
+        a(ng-href='/items/{{item._id}}') {{item.name}}
+    p {{item.brand}}
+    //- if item.imageUrl
+    //-   a(href='/users/#{item.userId}/items/#{item._id}')
+    //-     img.gearthumbnail(src='#{item.imageUrl}' alt='broken image')

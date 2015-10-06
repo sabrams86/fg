@@ -4,7 +4,11 @@ var auth = require('./../lib/authorization');
 var dblib = require('./../lib/items_lib');
 
 //INDEX
-
+router.get('/items', function (req, res, next) {
+  dblib.getItems().then(function (results) {
+    res.json(results);
+  })
+})
 //NEW
 
 //SHOW
