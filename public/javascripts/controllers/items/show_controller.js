@@ -9,8 +9,6 @@ function ($scope, $cookies, $location, ItemService) {
     })
   }
   $scope.editItem = function (itemId) {
-    ItemService.deleteItem(itemId).then(function () {
-      $location.path('/items/'+itemId+'/edit');
-    })
+    $location.path('/items/'+itemId+'/edit');
   }
 }])

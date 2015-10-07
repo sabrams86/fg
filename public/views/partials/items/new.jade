@@ -8,15 +8,30 @@ block content
       .field
         label Name
         input(type='text' ng-model="name")
-        .field
+      .field
         label Brand
         input(type='text' ng-model="brand")
+      .field
+        label Date Purchased
+        input(type='date' ng-model="datePurchased")
+      .field
+        label Condition
+        input(type='text' ng-model="condition")
     .field
-      label Date Purchased
-      input(type='date' ng-model="datePurchased")
-    .field
-      label Condition
-      input(type='text' ng-model="condition")
+      label Description
+      textarea(ng-model="description")
+    .field(categoryDropdown)
+      label Categories
+      select#multi-select.ui.multiple.selection.dropdown(multiple="")
+        option(value="") Select Categories
+        option(value="biking") Biking
+        option(value="hiking") Hiking
+        option(value="backpacking") Backpacking
+        option(value="skiing") Skiing
+        option(value="snowshoing") Snowshoing
+        option(value="snowboarding") Snowboarding
+        option(value="kayaking") Kayaking
+        option(value="surfing") Surfing
     .field
       button(type='submit') Create Item
     //- 

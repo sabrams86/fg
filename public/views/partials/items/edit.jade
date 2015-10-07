@@ -3,7 +3,7 @@ extends ./../../layout
 block content
   h1 Edit your gear details
 
-  form.ui.form(ng-submit="updateItem()")
+  form.ui.form(ng-submit="updateItem(item._id)")
     .fields
       .field
         label Name
