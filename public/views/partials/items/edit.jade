@@ -1,0 +1,24 @@
+extends ./../../layout
+
+block content
+  h1 Edit your gear details
+
+  form.ui.form(ng-submit="updateItem()")
+    .fields
+      .field
+        label Name
+        input(type='text' ng-model="name" ng-value="item.name")
+        .field
+        label Brand
+        input(type='text' ng-model="brand" ng-value="item.brand")
+    .field
+      label Date Purchased
+      input(type='date' ng-model="datePurchased")
+    .field
+      label Condition
+      input(type='text' ng-model="condition" ng-value="item.condition")
+    .field
+      button(type='submit') Save
+    //- 
+    //- categories: Array,
+    //- imageUrl: String,

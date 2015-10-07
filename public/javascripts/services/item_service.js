@@ -15,6 +15,11 @@ app.factory('ItemService', ['$http', '$cookies', function ($http, $cookies) {
       return result.data;
     });
   }
+  Items.updateItem = function (itemData, itemId) {
+    return $http.post('http://localhost:3000/items/'+itemId, itemData).then(function (result) {
+      return result.data;
+    });
+  }
   Items.deleteItem = function (itemId) {
     return $http.post('http://localhost:3000/items/'+itemId+'/delete');
   }

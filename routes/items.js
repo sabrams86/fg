@@ -31,6 +31,13 @@ router.post('/items', function (req, res, next) {
 })
 
 //UPDATE
+router.post('/items/:id', function (req, res, next) {
+  dblib.updateItem(req.body.item).then(function (result) {
+    res.json(result);
+  }, function (err) {
+    res.json(err);
+  })
+})
 
 //DELETE
 router.post('/items/:id/delete', function (req, res, next) {

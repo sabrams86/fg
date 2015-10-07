@@ -1,8 +1,9 @@
 header
   .container
-    h2#title.left
-      | FriendlyGear
-      small  a place for friends with gear
+    a(href='/home')
+      h2#title.left
+        | FriendlyGear
+        small  a place for friends with gear
     .usermenu.right
       | Login
       form(method='post', action='/login')
