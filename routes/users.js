@@ -4,7 +4,7 @@ var auth = require('./../lib/authorization');
 var dblib = require('./../lib/db_lib');
 
 //SHOW
-router.get('/users/:userId', auth.authorizeUser, function(req, res, next) {
+router.get('/users/:userId', function(req, res, next) {
   dblib.findOneUser(req.params.userId).then(function (result) {
     res.json(result);
   });

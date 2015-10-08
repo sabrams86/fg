@@ -14,6 +14,14 @@ app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProv
       templateUrl: '/partials/signup.html',
       controller: 'SignUpController'
     })
+    .when('/users/:id', {
+      templateUrl: '/partials/users/show.html',
+      controller: 'UsersController'
+    })
+    .when('/users/:id/edit', {
+      templateUrl: '/partials/users/edit.html',
+      controller: 'EditUsersController'
+    })
     .when('/items/new', {
       templateUrl: '/partials/items/new.html',
       controller: 'ItemsController'

@@ -13,9 +13,12 @@ function ($scope, $cookies, $location, ItemService) {
         'brand': $scope.brand,
         'condition': $scope.condition,
         'datePurchased': $scope.datePurchased,
+        'description': $scope.description,
+        'userId': $cookies.get('user')
       }
     }
     ItemService.createItem(this.itemData).then(function (results) {
+      console.log(results);
       $location.path('/items/'+results._id)
     });
   }

@@ -13,6 +13,8 @@ function ($scope, $cookies, $location, UserService) {
         'passwordconfirm': $scope.passwordconfirm,
       }
     }
-    UserService.signUpUser(this.user);
+    UserService.signUpUser(this.user).then(function (result) {
+      $location.path('/users/'+result._id)
+    });
   }
 }]);
