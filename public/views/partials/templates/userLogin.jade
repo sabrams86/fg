@@ -1,0 +1,17 @@
+.usermenu.right(ng-hide="userLoggedIn")
+  | Login
+  form(ng-submit="login()")
+    .row
+      input.sml(type='text', name='username', ng-model='username' placeholder='username')
+      input.sml(type='password', name='password', ng-model='password' placeholder='password')
+    .row
+      input.sml(type='submit', value='Login')
+      |            or
+      a.grey(ng-click='signUp()')  Sign Up
+.usermenu.right(ng-show="userLoggedIn")
+  div
+    a.user-link(ng-href='/users/{{currentUser}}') My Gear 
+  div
+    a.user-link(ng-href='/users/{{currentUser}}/edit') Edit Profile
+  div  
+    a.user-link(ng-click='logout()') Logout

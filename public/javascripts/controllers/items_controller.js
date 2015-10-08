@@ -7,6 +7,7 @@ function ($scope, $cookies, $location, ItemService) {
 
   }
   $scope.createItem = function() {
+    console.log($scope.categories);
     $scope.itemData = {
       'item': {
         'name': $scope.name,
@@ -14,11 +15,11 @@ function ($scope, $cookies, $location, ItemService) {
         'condition': $scope.condition,
         'datePurchased': $scope.datePurchased,
         'description': $scope.description,
+        'imageUrl': $scope.imageUrl,
         'userId': $cookies.get('user')
       }
     }
     ItemService.createItem(this.itemData).then(function (results) {
-      console.log(results);
       $location.path('/items/'+results._id)
     });
   }

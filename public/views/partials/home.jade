@@ -7,4 +7,4 @@ block content
         a(ng-href='/items/{{item._id}}') {{item.name}}
     p {{item.brand}}
       a(ng-href='/items/{{item._id}}' ng-show='item.imageUrl')
-        img.gearthumbnail(ng-src='item.imageUrl' alt='broken image')
+        img.gearthumbnail(ng-src='{{item.imageUrl}}' alt='broken image')

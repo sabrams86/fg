@@ -18,11 +18,14 @@ block content
         label Condition
         input(type='text' ng-model="condition")
     .field
+      label Image URL
+      input(type='url' ng-model="imageUrl")
+    .field
       label Description
       textarea(ng-model="description")
     .field(categoryDropdown)
       label Categories
-      select#multi-select.ui.multiple.selection.dropdown(multiple="")
+      select#multi-select.ui.multiple.selection.dropdown(multiple="" ng-model="categories")
         option(value="") Select Categories
         option(value="biking") Biking
         option(value="hiking") Hiking

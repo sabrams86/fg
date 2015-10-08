@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var dblib = require('./../lib/db_lib');
+var bcrypt = require('bcryptjs');
 
 //Login
 router.post('/login', function (req, res, next) {

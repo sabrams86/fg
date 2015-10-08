@@ -6,7 +6,6 @@ var dblib = require('./../lib/items_lib');
 //INDEX
 router.get('/items', function (req, res, next) {
   dblib.getItems(res.locals.owner_id).then(function (results) {
-    console.log(results);
     res.json(results);
   })
 })

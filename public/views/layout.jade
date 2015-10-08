@@ -4,16 +4,7 @@ header
       h2#title.left
         | FriendlyGear
         small  a place for friends with gear
-    .usermenu.right
-      | Login
-      form(method='post', action='/login')
-        .row
-          input.sml(type='text', name='username', placeholder='username')
-          input.sml(type='password', name='password', placeholder='password')
-        .row
-          input.sml(type='submit', value='Login')
-          |            or
-          a.grey(ng-click='signUp()')  Sign Up
+    user-auth-directive
 main
   .container
     block content

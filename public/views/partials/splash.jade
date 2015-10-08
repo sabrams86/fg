@@ -4,23 +4,7 @@
       h2.title.left
         | FriendlyGear
         small  a place for friends with gear {{$root.userLoggedIn}}
-      .usermenu.right.blue(ng-hide="userLoggedIn")
-        | Login
-        form(ng-submit="login()")
-          .row
-            input.sml(type='text', name='username', ng-model='username' placeholder='username')
-            input.sml(type='password', name='password', ng-model='password' placeholder='password')
-          .row
-            input.sml(type='submit', value='Login')
-            |            or
-            a.grey(ng-click='signUp()')  Sign Up
-      .usermenu.right(ng-show="userLoggedIn")
-        div
-          a(ng-href='/users/{user_id}') My Gear 
-        div
-          a(ng-href='/users/{user_id}/edit') Edit Profile
-        div  
-          a(ng-click='logout()') Logout
+      user-auth-directive.splash-user-menu
   main.splash-main
     .splash.container
       .splash-form.ui.three.column.grid

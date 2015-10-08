@@ -1,14 +1,28 @@
 extends ./../../layout
 
 block content
-  h1 woo stuff
-  h4 Name
-  p {{item.name}}
-  h4 Brand
-  p {{item.brand}}
-  h4 Condition
-  p {{item.condition}}
-  h4 Date Purchased
-  p {{item.datePurchased}}
-  button(ng-click="editItem(item._id)") Edit Info
-  button(ng-click="deleteItem(item._id)") Delete Item
+  h5(ng-hide="currentUser") Login to Rent this!
+  h4(ng-show="currentUser != item.userId")
+    a.dark(ng-href='/items/{{item._id}}/contracts/new') Rent it!
+  h4(ng-show="currentUser == item.userId")
+    a.dark(ng-href='/users/{{item.userId}}/items') Pending Rentals
+    |  | 
+    a.dark(ng-href='/items/{{item._id}}/edit') Edit
+  h1 {{item.name}}
+  img.gearimage(ng-src='{{item.imageUrl}}' alt='broken image')
+  .info
+    .row 
+      h6.noTop Description:
+      p {{item.description}}
+    .row 
+      h6 Brand:
+      p {{item.brand}}
+    .row
+      h6 Condition:
+      p {{item.condition}}
+    .row
+      h6 Categories:
+      ul
+        //- each category in categories
+        //-   li= category.name
+    a(ng-href='/users/{{user_id}}/items') Back

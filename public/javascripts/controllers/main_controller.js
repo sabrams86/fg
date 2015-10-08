@@ -8,6 +8,7 @@ function ($scope, $location, $cookies, UserService, AuthService) {
   $scope.logout = function () {
     $cookies.remove('user')
     $scope.userLoggedIn = false;
+    $location.path('/')
   }
   $scope.login = function () {
     AuthService.login({username: $scope.username, password: $scope.password}).then(function (result) {

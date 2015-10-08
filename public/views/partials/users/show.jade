@@ -5,7 +5,7 @@ block content
   h4
     a.dark(href='/items/new') Add a new item
   p
-  img.avatar(src='user.avatarUrl' alt='profile pic')
+  img.avatar(ng-src='user.avatarUrl' alt='profile pic')
   .col8()
     h4.noTop Rental Requests
     table.rentals
@@ -57,7 +57,7 @@ block content
         td {{item.name}}
         td {{item.brand}}
         td
-          img.gearlistthumbnail(ng-src='item.imageUrl' alt='broken image')
+          img.gearlistthumbnail(ng-src='{{item.imageUrl}}' alt='broken image')
         td
           a.dark(ng-href='/items/{{item._id}}') Show 
           |  | 

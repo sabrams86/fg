@@ -1,6 +1,9 @@
 #splash-page {
   header, main, footer{
     background-color: rgba(255,255,255,0);
+    .user-link{
+      color: $grey;
+    }
   }
   main{
     min-height: 500px;
@@ -11,6 +14,7 @@
     color: $white;
   }
 }
+
 .splash {
   text-align: center;
   label{
@@ -20,9 +24,6 @@
 .splash-search-button {
   display: block;
   margin: 0 auto;
-}
-.blue < a{
-  color: $blue;
 }
 .title {
   small{
