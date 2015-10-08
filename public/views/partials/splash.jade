@@ -3,17 +3,24 @@
     .container
       h2.title.left
         | FriendlyGear
-        small  a place for friends with gear
-      .usermenu.right
+        small  a place for friends with gear {{$root.userLoggedIn}}
+      .usermenu.right.blue(ng-hide="userLoggedIn")
         | Login
-        form(method='post', action='/login')
+        form(ng-submit="login()")
           .row
-            input.sml(type='text', name='username', placeholder='username')
-            input.sml(type='password', name='password', placeholder='password')
+            input.sml(type='text', name='username', ng-model='username' placeholder='username')
+            input.sml(type='password', name='password', ng-model='password' placeholder='password')
           .row
             input.sml(type='submit', value='Login')
             |            or
             a.grey(ng-click='signUp()')  Sign Up
+      .usermenu.right(ng-show="userLoggedIn")
+        div
+          a(ng-href='/users/{user_id}') My Gear 
+        div
+          a(ng-href='/users/{user_id}/edit') Edit Profile
+        div  
+          a(ng-click='logout()') Logout
   main.splash-main
     .splash.container
       .splash-form.ui.three.column.grid
@@ -45,7 +52,7 @@
           .column
             button.row.btn(type="button" ng-click="search()") Search
   footer#splash-footer
-    a(href='#') How it works
+    a(href='#') How it works 
     |  | 
     a(href='#' ng-click="signUp()") Sign up
     |  | 

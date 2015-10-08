@@ -1,12 +1,10 @@
 extends ./../layout
 
 block content
-  a(href='#' ng-click='newItem()') New Item
   .listing(ng-repeat="item in items track by $index")
     p
       h6
         a(ng-href='/items/{{item._id}}') {{item.name}}
     p {{item.brand}}
-    //- if item.imageUrl
-    //-   a(href='/users/#{item.userId}/items/#{item._id}')
-    //-     img.gearthumbnail(src='#{item.imageUrl}' alt='broken image')
+      a(ng-href='/items/{{item._id}}' ng-show='item.imageUrl')
+        img.gearthumbnail(ng-src='item.imageUrl' alt='broken image')

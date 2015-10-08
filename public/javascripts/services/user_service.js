@@ -1,4 +1,4 @@
-app.factory('UserService', ['$http', '$cookies', function ($http, $cookies) {
+app.factory('UserService', ['$http', '$cookies', '$rootScope', function ($http, $cookies, $rootScope) {
   var Users = {};
 
   Users.getUser = function (userId) {
@@ -9,9 +9,20 @@ app.factory('UserService', ['$http', '$cookies', function ($http, $cookies) {
   Users.signUpUser = function (userInfo) {
     return $http.post('http://localhost:3000/users', userInfo).then(function (results) {
       $cookies.put('user', results.data._id);
+      $rootScope.userLoggedIn = true;
       return results.data;
     });
   }
-
+  Users.login = function (userInfo) {
+    return $http.post('http://localhost:3000/login', userInfo).then(function (results) {
+      $cookies.put('user', results.data._id);
+      $rootScope.userLoggedIn = true;
+      return results.data
+    })
+  }
+  Users.logout = function () {
+    $rootScope.userLoggedIn = false;
+    $cookies.remove('user')
+  }
   return Users;
 }])

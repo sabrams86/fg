@@ -16,5 +16,5 @@ html(ng-app='friendlyGear')
     link(rel='stylesheet', href='/bower_components/normalize.css/normalize.css', type='text/css')
     link(rel='stylesheet', href='/style.min.css', media='screen', title='no title', charset='utf-8')
     base(href="/")
-  body
+  body(ng-controller='MainController')
     div(ng-view='')

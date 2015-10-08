@@ -1,5 +1,67 @@
 extends ./../../layout
 
 block content
-  <h1>Welcome {{user.name}}</h1>
-  <p>{{userItems}}</p>
+  h3 Welcome {{user.name}}
+  h4
+    a.dark(href='/items/new') Add a new item
+  p
+  img.avatar(src='user.avatarUrl' alt='profile pic')
+  .col8()
+    h4.noTop Rental Requests
+    table.rentals
+      thead
+        tr
+          th Item
+          th Status
+          th Start Date
+          th End Date
+          th Options
+      tbody
+        //- each sellerContract in sellerContracts
+        //-   tr
+        //-     td= sellerContract.item.name
+        //-     td= sellerContract.status
+        //-     td= sellerContract.startDate
+        //-     td= sellerContract.endDate
+        //-     td
+        //-       a.dark(href='/users/#{sellerContract.sellerId}/items/#{sellerContract.itemId}/contracts/#{sellerContract._id}') View Rental
+    h4 Your Pending Rentals
+    table.rentals
+      thead
+        tr
+          th Item
+          th Status
+          th Start Date
+          th End Date
+          th Options
+      tbody
+        //- each buyerContract in buyerContracts
+        //-   tr
+        //-     td= buyerContract.item.name
+        //-     td= buyerContract.status
+        //-     td= buyerContract.startDate
+        //-     td= buyerContract.endDate
+        //-     td
+        //-       a.dark(href='/users/#{buyerContract.sellerId}/items/#{buyerContract.itemId}/contracts/#{buyerContract._id}') View Rental
+  table
+  h3 Your Gear
+  table
+    thead
+      tr
+        th Name
+        th Brand
+        th
+        th Options
+    tbody
+      tr(ng-repeat='item in userItems')
+        td {{item.name}}
+        td {{item.brand}}
+        td
+          img.gearlistthumbnail(ng-src='item.imageUrl' alt='broken image')
+        td
+          a.dark(ng-href='/items/{{item._id}}') Show 
+          |  | 
+          a.dark(ng-href='/items/{{item._id}}/edit') Edit
+          |  | 
+          a.dark(ng-click='deleteItem(item._id)') Delete
+            
