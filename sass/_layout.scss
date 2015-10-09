@@ -23,23 +23,21 @@ header {
   // background-image: url(./../images/nomad.jpeg);
   // background-position: bottom;
   // background-size: cover;
-  background-color: $blue;
+  background-color: rgba($blue, .8);
 }
 footer {
   height: 60px;
-  background-color: $red;
+  background-color: rgba($red, .8);
 }
 main {
-  min-height: 600px;
-  background-color: rgba($white, 0.7);
+  min-height: 510px;
   background-size: cover;
   background-position: bottom;
   height: 100%;
-}
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  background-image: url('/images/nomad.JPG');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .container{
   margin: 0 auto;
@@ -60,16 +58,16 @@ body {
 .left{
   float: left;
 }
-// .col6 {
-//   display: inline-block;
-//   vertical-align: top;
-//   width: 50%;
-// }
-// .col2 {
-//   display: inline-block;
-//   vertical-align: top;
-//   width: 20%;
-// }
+.col6 {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+.col2 {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+}
 .clear {
   clear: both;
 }
@@ -79,14 +77,14 @@ body {
 .block {
   display: block;
 }
-// .col8 {
-//   display: inline-block;
-//   vertical-align: top;
-//   width: 60%;
-//   box-sizing: border-box;
-//   overflow: auto;
-//   padding: 20px;
-// }
+.col8 {
+  display: inline-block;
+  vertical-align: top;
+  width: 60%;
+  box-sizing: border-box;
+  overflow: auto;
+  padding: 20px;
+}
 .noTop {
   margin-top: 0;
   padding-top: 0;

@@ -5,8 +5,8 @@ block content
   h4
     a.dark(href='/items/new') Add a new item
   p
-  img.avatar(ng-src='user.avatarUrl' alt='profile pic')
-  .col8()
+  img.avatar(ng-src='{{user.avatarUrl}}' alt='profile pic')
+  .col8
     h4.noTop Rental Requests
     table.rentals
       thead

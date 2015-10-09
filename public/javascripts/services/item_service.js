@@ -24,7 +24,7 @@ app.factory('ItemService', ['$http', '$cookies', function ($http, $cookies) {
     return $http.post('http://localhost:3000/items/'+itemId+'/delete');
   }
   Items.getUserItems = function (userId) {
-    return $http.get('http://localhost:3000/users/'+userId+'/items').then(function (results) {
+    return $http.get('http://localhost:3000/users/'+userId+'/user_items').then(function (results) {
       return results.data;
     });
   }

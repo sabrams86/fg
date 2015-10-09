@@ -5,7 +5,13 @@ var dblib = require('./../lib/items_lib');
 
 //INDEX
 router.get('/items', function (req, res, next) {
-  dblib.getItems(res.locals.owner_id).then(function (results) {
+  dblib.getItems({}).then(function (results) {
+    res.json(results);
+  })
+})
+//INDEX
+router.get('/user_items', function (req, res, next) {
+  dblib.getUserItems(res.locals.owner_id).then(function (results) {
     res.json(results);
   })
 })
