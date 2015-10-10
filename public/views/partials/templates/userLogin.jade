@@ -7,11 +7,11 @@
     .row
       input.sml(type='submit', value='Login')
       |            or
-      a.grey(ng-click='signUp()')  Sign Up
+      a.grey(href="/signup" ng-click='signUpPage()')  Sign Up
 .usermenu.right(ng-show="userLoggedIn")
   div
     a.user-link(ng-href='/users/{{currentUser}}') My Gear 
   div
     a.user-link(ng-href='/users/{{currentUser}}/edit') Edit Profile
   div  
-    a.user-link(ng-click='logout()') Logout
+    a.user-link(href="/" ng-click='logout()') Logout

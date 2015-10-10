@@ -23,7 +23,7 @@ router.post('/users', function(req, res, next) {
 });
 
 //UPDATE
-router.post('/users/:userId', auth.authorizeUser, function(req, res, next) {
+router.post('/users/:userId', function(req, res, next) {
   dblib.validateUserUpdate(req.body.user).then(function () {
     dblib.findOneUser(req.params.userId).then(function (user) {
       dblib.updateUser(req.body.user, user.password).then(function (result) {

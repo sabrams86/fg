@@ -25,16 +25,7 @@ block content
       textarea(ng-model="description")
     .field(categoryDropdown)
       label Categories
-      select#multi-select.ui.multiple.selection.dropdown(multiple="" ng-model="categories")
-        option(value="") Select Categories
-        option(value="biking") Biking
-        option(value="hiking") Hiking
-        option(value="backpacking") Backpacking
-        option(value="skiing") Skiing
-        option(value="snowshoing") Snowshoing
-        option(value="snowboarding") Snowboarding
-        option(value="kayaking") Kayaking
-        option(value="surfing") Surfing
+      category-dropdown
     .field
       button(type='submit') Create Item
     //- 

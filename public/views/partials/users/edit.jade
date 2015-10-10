@@ -1,12 +1,9 @@
-extends ./../layout
+extends ./../../layout
 
 block content
-  h1 Sign up as a new user
-  form.ui.form(ng-submit="signUp()" name='userForm')
+  h1 Edit User Information
+  form.ui.form(ng-submit="updateUser()" name='userForm')
     .fields
-      .field
-        label(for='username') Username
-        input#username(type='text' name='user[username]' ng-model='username' value=(user ? user.username: ''))
       .field  
         label(for='email') Email
         input#email(type='email' name='user[email]' ng-model='email' value=(user ? user.email: ''))

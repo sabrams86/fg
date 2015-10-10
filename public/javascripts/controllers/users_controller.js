@@ -7,10 +7,28 @@ function ($scope, $location, $cookies, UserService, ItemService) {
     $location.path('/');
   }).then(function (userInfo) {
     return ItemService.getUserItems(userInfo._id).then(function (userItems) {
-      console.log(userItems);
       $scope.userItems = userItems;
       return userItems;
     })
   })
+
+  $scope.updateUser = function () {
+    $scope.userData = {
+      'user':{
+        '_id': $cookies.get('user'),
+        'name': $scope.name,
+        'email': $scope.email,
+        'city': $scope.city,
+        'state': $scope.state,
+        'zip': $scope.zip,
+        'avatarUrl': $scope.avatarUrl,
+        'password': $scope.password,
+        'passwordconfirm': $scope.passwordconfirm,
+      }
+    }
+    UserService.updateUser(this.userData, $cookies.get('user')).then(function (result) {
+      $location.path('/users/'+result.user._id)
+    })
+  }
 
 }])

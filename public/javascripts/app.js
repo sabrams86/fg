@@ -20,7 +20,7 @@ app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProv
     })
     .when('/users/:id/edit', {
       templateUrl: '/partials/users/edit.html',
-      controller: 'EditUsersController'
+      controller: 'UsersController'
     })
     .when('/items/new', {
       templateUrl: '/partials/items/new.html',

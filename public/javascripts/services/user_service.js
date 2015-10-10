@@ -13,6 +13,11 @@ app.factory('UserService', ['$http', '$cookies', '$rootScope', function ($http, 
       return results.data;
     });
   }
+  Users.updateUser = function (userInfo, userId) {
+    return $http.post('http://localhost:3000/users/'+userId, userInfo).then(function (results) {
+      return results.data;
+    });
+  }
   Users.login = function (userInfo) {
     return $http.post('http://localhost:3000/login', userInfo).then(function (results) {
       $cookies.put('user', results.data._id);

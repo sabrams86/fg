@@ -15,4 +15,7 @@ function ($scope, $location, $cookies, UserService, AuthService) {
       $scope.userLoggedIn = true;
     });
   }
+  $scope.signUpPage = function () {
+    $location.path('/signup');
+  }
 }])
