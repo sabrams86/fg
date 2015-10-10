@@ -1,5 +1,8 @@
 extends ./../layout
 
+block leftside
+  div.white(ng-repeat="category in categories")
+    a.white(href="#" ng-click="filterCategory(category)") {{category.name}}
 block content
   .listing(ng-repeat="item in items track by $index")
       p

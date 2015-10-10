@@ -9,7 +9,9 @@ function ($scope, $cookies, $location, ItemService) {
         'name': $scope.name,
         'brand': $scope.brand,
         'condition': $scope.condition,
-        'datePurchased': $scope.datePurchased,
+        'description': $scope.description,
+        'imageUrl': $scope.imageUrl,
+        'categories': $scope.categories,
       }
     }
     ItemService.updateItem(this.itemData, itemId).then(function (results) {

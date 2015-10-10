@@ -1,0 +1,26 @@
+extends ./../../layout
+
+block content
+  h2 Category Index
+  form.ui.form(ng-submit="createCategory()")
+    .fields
+      .field
+        label Category Name
+          input(type="text" ng-model="name" name='category')
+      .field
+        label Parent Category
+          input(type="text" ng-model="parent" name="parentCategory")
+      .field
+          button(type='submit') Create Category
+  table
+    thead
+      tr
+        th Category
+        th Parent
+        th Options
+    tbody
+      tr(ng-repeat="category in categories")
+        td {{category.name}}
+        td {{category.parent}}
+        td
+          a.grey(href="#" ng-click='deleteCategory(category)') Delete

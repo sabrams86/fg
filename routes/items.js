@@ -5,7 +5,11 @@ var dblib = require('./../lib/items_lib');
 
 //INDEX
 router.get('/items', function (req, res, next) {
-  dblib.getItems({}).then(function (results) {
+  var query = {};
+  if (req.query.category) {
+    var query = {categories: {$in: [req.query.category]}};
+  }
+  dblib.getItems(query).then(function (results) {
     res.json(results);
   })
 })

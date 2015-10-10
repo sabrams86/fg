@@ -1,10 +1,3 @@
 select#multi-select.ui.multiple.selection.dropdown(multiple="" ng-model="categories")
   option(value="") Select Categories
-  option(value="biking") Biking
-  option(value="hiking") Hiking
-  option(value="backpacking") Backpacking
-  option(value="skiing") Skiing
-  option(value="snowshoing") Snowshoing
-  option(value="snowboarding") Snowboarding
-  option(value="kayaking") Kayaking
-  option(value="surfing") Surfing
+  option(ng-repeat="category in categories" ng-value="category.name") {{category.name}}

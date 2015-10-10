@@ -23,6 +23,5 @@ block content
     .row
       h6 Categories:
       ul
-        //- each category in categories
-        //-   li= category.name
+        li(ng-repeat='category in item.categories') {{category}}
     a(ng-href='/users/{{user_id}}/items') Back

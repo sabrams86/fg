@@ -1,9 +1,17 @@
-app.controller('HomeController', ['$scope', '$location', '$cookies', 'ItemService',
-function ($scope, $location, $cookies, ItemService) {
-  ItemService.getAllItems().then(function (results) {
+app.controller('HomeController', ['$scope', '$location', '$cookies', 'ItemService', 'CategoryService',
+function ($scope, $location, $cookies, ItemService, CategoryService) {
+  ItemService.getAllItems('').then(function (results) {
     $scope.items = results;
+  })
+  CategoryService.getCategories().then(function (results) {
+    $scope.categories = results;
   })
   $scope.newItem = function() {
     $location.path('/items/new');
+  }
+  $scope.filterCategory = function (category) {
+    ItemService.getAllItems("?category="+category.name).then(function (results) {
+      $scope.items = results
+    })
   }
 }]);

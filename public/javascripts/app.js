@@ -34,6 +34,10 @@ app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProv
       templateUrl: '/partials/items/edit.html',
       controller: 'EditItemController'
     })
+    .when('/admin/categories', {
+      templateUrl: '/partials/categories/index.html',
+      controller: 'CategoriesController'
+    })
     .otherwise({redirectTo: '/'});
   $locationProvider.html5Mode(true);
 }]);

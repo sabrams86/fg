@@ -1,10 +1,10 @@
-app.controller('ItemsController', ['$scope', '$cookies', '$location', 'ItemService',
-function ($scope, $cookies, $location, ItemService) {
+app.controller('ItemsController', ['$scope', '$cookies', '$location', 'ItemService','CategoryService',
+function ($scope, $cookies, $location, ItemService, CategoryService) {
+  CategoryService.getCategories().then(function (results) {
+    $scope.categories = results;
+  })
   $scope.newItem = function() {
     $location.path('/items/new');
-  }
-  $scope.showItem = function () {
-
   }
   $scope.createItem = function() {
     console.log($scope.categories);
@@ -16,6 +16,7 @@ function ($scope, $cookies, $location, ItemService) {
         'datePurchased': $scope.datePurchased,
         'description': $scope.description,
         'imageUrl': $scope.imageUrl,
+        'categories': $scope.categories,
         'userId': $cookies.get('user')
       }
     }
