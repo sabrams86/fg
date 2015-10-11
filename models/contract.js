@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var contractSchema = new mongoose.Schema({
   itemId: String,
-  sellerId: String,
-  buyerId: String,
+  ownerId: String,
+  renterId: String,
   startDate: String,
   endDate: String,
   status: String

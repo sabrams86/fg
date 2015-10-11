@@ -8,3 +8,13 @@ app.directive("categoryDropdown", function () {
     templateUrl: '/partials/templates/dropdown.html',
   }
 })
+app.directive("searchableCategoryDropdown", function () {
+  return {
+    link: function(scope, elem, attrs) {
+      angular.forEach(elem.find( "#search-select" ), function(inputField) {
+        $(inputField).dropdown();
+      });
+    },
+    templateUrl: '/partials/templates/search_dropdown.html',
+  }
+})

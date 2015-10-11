@@ -72,11 +72,11 @@ app.use('/users/:userId', function (req, res, next) {
   next();
 }, items);
 
-// app.use('/users/:userId/items/:itemId', function (req, res, next) {
-//   res.locals.owner_id = req.params.userId;
-//   res.locals.item_id = req.params.itemId;
-//   next();
-// }, contracts);
+app.use('/items/:itemId', function (req, res, next) {
+  // res.locals.owner_id = req.params.userId;
+  // res.locals.item_id = req.params.itemId;
+  next();
+}, contracts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

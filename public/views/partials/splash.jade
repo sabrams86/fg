@@ -23,12 +23,7 @@
               .column
                 input(type='date', name='mainSearch[endDate]')
           .column
-            select(name='mainSearch[activity]')
-              option(value="")
-              option(value='option') Backpacking
-              option(value='option') Skiing
-              option(value='option') Biking
-              option(value='option') Kayaking
+            searchable-category-dropdown
           .column
             input(type='text', name='mainSearch[location]')
         .row

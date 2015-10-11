@@ -1,0 +1,16 @@
+extends ./../../layout
+
+block content
+  h2 Contract Details:
+  div(ng-show="currentUser == contract.renterId")
+    h4 You have requested to rent {{item.name}}
+    h4 Status: {{contract.status}}
+    h6 You will be notified when the owner of this item has approved or rejected your request.
+    form(ng-submit='deleteContract()' method='post' action='/users/{item.ownerId}/items/{item._id}/contracts/{contract._id}/delete')
+      button(type='submit') Cancel Rental
+  div(ng-show="currentUser == contract.ownerId")
+    h4 You have a pending request for your {{item.name}}
+    h4 Status: {{contract.status}}
+    form
+      button(ng-click='approveContract()') Approve Rental
+    

@@ -38,6 +38,18 @@ app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProv
       templateUrl: '/partials/categories/index.html',
       controller: 'CategoriesController'
     })
+    .when('/items/:itemId/contracts/new', {
+      templateUrl: '/partials/contracts/new.html',
+      controller: 'ContractsController'
+    })
+    .when('/items/:itemId/contracts/:id', {
+      templateUrl: '/partials/contracts/show.html',
+      controller: 'ShowContractsController'
+    })
+    .when('/items/:itemId/contracts/edit', {
+      templateUrl: '/partials/contracts/edit.html',
+      controller: 'ContractsController'
+    })
     .otherwise({redirectTo: '/'});
   $locationProvider.html5Mode(true);
 }]);

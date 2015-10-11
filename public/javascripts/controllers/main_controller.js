@@ -2,6 +2,7 @@ app.controller('MainController', ['$scope', '$location', '$cookies', 'UserServic
 function ($scope, $location, $cookies, UserService, AuthService) {
   AuthService.checkLoggedIn().then(function(result) {
     $scope.userLoggedIn = true;
+    $scope.currentUser = $cookies.get('user');
   }, function(result) {
     $scope.userLoggedIn = false;
   });

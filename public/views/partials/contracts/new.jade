@@ -1,0 +1,13 @@
+extends ./../../layout
+
+block content
+  h2 Gear rental form
+  form(ng-submit='createContract()')
+    input(type='hidden' name='ownerId' ng-model='foo')
+    input(type='hidden' name='renderId' ng-model='currentUser')
+    label(for='startDate') Pickup Date
+    input#startDate(type='date' name='startDate' ng-model='startDate')
+    label(for='endDate') Dropoff Date
+    input#endDate(type='date' name='endDate' ng-model='endDate')
+    .row
+      input(type='submit' value='Request Rental')
