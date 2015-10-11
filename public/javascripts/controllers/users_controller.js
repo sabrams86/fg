@@ -1,5 +1,5 @@
-app.controller('UsersController', ['$scope', '$location', '$cookies', 'UserService', 'ItemService',
-function ($scope, $location, $cookies, UserService, ItemService) {
+app.controller('UsersController', ['$scope', '$location', '$cookies', 'UserService', 'ItemService', 'ContractService',
+function ($scope, $location, $cookies, UserService, ItemService, ContractService) {
   UserService.getUser($cookies.get('user')).then(function (user) {
     $scope.user = user;
     return user;
@@ -8,7 +8,18 @@ function ($scope, $location, $cookies, UserService, ItemService) {
   }).then(function (userInfo) {
     return ItemService.getUserItems(userInfo._id).then(function (userItems) {
       $scope.userItems = userItems;
-      return userItems;
+      return userInfo;
+    })
+  }).then(function (userInfo) {
+    ContractService.getUserContracts(userInfo._id, 'owner').then(function (userOwnerContracts) {
+      console.log(userOwnerContracts);
+      $scope.ownerContracts = userOwnerContracts;
+    })
+    return userInfo
+  }).then(function (userInfo) {
+    ContractService.getUserContracts(userInfo._id, 'renter').then(function (userRenterContracts) {
+      console.log(userRenterContracts);
+      $scope.renterContracts = userRenterContracts;
     })
   })
 

@@ -22,5 +22,10 @@ function ($http, $cookies, $q) {
       return result.data;
     })
   }
+  Service.getUserContracts = function (userId, type) {
+    return $http.get('http://localhost:3000/contracts/'+userId+'/'+type).then(function (results) {
+      return results.data;
+    })
+  }
   return Service;
 }])

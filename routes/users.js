@@ -44,4 +44,12 @@ router.post('/users/:userId/delete', auth.authorizeUser, function(req, res, next
   });
 });
 
+//USER CONTRACTS
+router.get('/contracts/:id/:type', function (req, res, next) {
+  console.log('foo');
+  dblib.getUserContracts(req.params.id, req.params.type).then(function (results) {
+    res.json(results);
+  })
+})
+
 module.exports = router;

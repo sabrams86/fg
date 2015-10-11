@@ -17,14 +17,13 @@ block content
           th End Date
           th Options
       tbody
-        //- each sellerContract in sellerContracts
-        //-   tr
-        //-     td= sellerContract.item.name
-        //-     td= sellerContract.status
-        //-     td= sellerContract.startDate
-        //-     td= sellerContract.endDate
-        //-     td
-        //-       a.dark(href='/users/#{sellerContract.sellerId}/items/#{sellerContract.itemId}/contracts/#{sellerContract._id}') View Rental
+        tr(ng-repeat='ownerContract in ownerContracts')
+          td {{ownerContract.item.name}}
+          td {{ownerContract.status}}
+          td {{ownerContract.startDate}}
+          td {{ownerContract.endDate}}
+          td
+            a.dark(ng-href='/items/{{ownerContract.itemId}}/contracts/{{ownerContract._id}}') View Rental
     h4 Your Pending Rentals
     table.rentals
       thead
@@ -35,14 +34,13 @@ block content
           th End Date
           th Options
       tbody
-        //- each buyerContract in buyerContracts
-        //-   tr
-        //-     td= buyerContract.item.name
-        //-     td= buyerContract.status
-        //-     td= buyerContract.startDate
-        //-     td= buyerContract.endDate
-        //-     td
-        //-       a.dark(href='/users/#{buyerContract.sellerId}/items/#{buyerContract.itemId}/contracts/#{buyerContract._id}') View Rental
+        tr(ng-repeat='renterContract in renterContracts')
+          td {{renterContract.item.name}}
+          td {{renterContract.status}}
+          td {{renterContract.startDate}}
+          td {{renterContract.endDate}}
+          td
+            a.dark(href='/items/{{renterContract.itemId}}/contracts/{{renterContract._id}}') View Rental
   table
   h3 Your Gear
   table
