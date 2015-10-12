@@ -28,5 +28,10 @@ app.factory('ItemService', ['$http', '$cookies', function ($http, $cookies) {
       return results.data;
     });
   }
+  Items.addReservation = function (itemId, reservation) {
+    return $http.post('http://localhost:3000/items/'+itemId+'/reserve', reservation).then(function (result) {
+      return result;
+    })
+  }
   return Items;
 }]);

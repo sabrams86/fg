@@ -100,7 +100,7 @@ angular.module('jkuri.bookingcalendar', [])
 					dateTo = d.set('month', d.month() + scope.num - 1).set('date', d.endOf('month').date()).format('YYYY-MM-DD');
 
 				MultiCalendarService.getData(scope.url, scope.id, dateFrom, dateTo).then(function(resp) {
-					resp.data.forEach(function(d) {
+					resp.data.reservedDates.forEach(function(d) {
 						calData[d.date] = d.is_available;
 					});
 
@@ -111,11 +111,6 @@ angular.module('jkuri.bookingcalendar', [])
 
 					scope.loading = false;
 				});
-			};
-
-			scope.selectDate = function (e, d) {
-				console.log(e);
-				console.log(d);
 			};
 
 			scope.prevMonth = function () {

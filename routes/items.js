@@ -3,6 +3,15 @@ var router = express.Router();
 var auth = require('./../lib/authorization');
 var dblib = require('./../lib/items_lib');
 
+//ADD RESERVATION
+router.post('/items/:id/reserve', function (req, res, next) {
+  dblib.addReservation(req.params.id, req.body).then(function (result) {
+    res.json(true);
+  }, function (err) {
+    res.json(false);
+  })
+});
+
 //INDEX
 router.get('/items', function (req, res, next) {
   var query = {};
@@ -13,7 +22,7 @@ router.get('/items', function (req, res, next) {
     res.json(results);
   })
 })
-//INDEX
+//User Index
 router.get('/user_items', function (req, res, next) {
   dblib.getUserItems(res.locals.owner_id).then(function (results) {
     res.json(results);

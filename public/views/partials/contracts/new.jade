@@ -10,6 +10,6 @@ block content
     label(for='endDate') Dropoff Date
     input#endDate(type='date' name='endDate' ng-model='endDate')
     .row
-      fg-booking-calendar(url="/bower_components/ngBookingCalendar/data/example_data.json")
+      fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
     .row
       input(type='submit' value='Request Rental')

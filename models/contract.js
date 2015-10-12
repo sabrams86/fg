@@ -6,6 +6,7 @@ var contractSchema = new mongoose.Schema({
   renterId: String,
   startDate: String,
   endDate: String,
+  reservedDates: Array,
   status: String
 });
 

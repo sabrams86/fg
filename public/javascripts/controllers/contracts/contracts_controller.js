@@ -4,14 +4,8 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
   ItemService.getItem($location.path().split('/')[2]).then(function (result) {
     $scope.item = result;
   })
+  $scope.reservedDates = [];
   $scope.createContract = function () {
-    var availability = [];
-    var start = $scope.startDate.split('-');
-    var end = $scope.endDate.split('-');
-    // for(var i = )
-    // {"date": "2016-06-09", "is_available": false },
-    // {"date": "2016-06-10", "is_available": false },
-    // {"date": "2016-06-11", "is_available": false },
     var contractData = {
       contract: {
         itemId: $scope.item._id,
@@ -19,10 +13,11 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
         renterId: $scope.currentUser,
         startDate: $scope.startDate,
         endDate: $scope.endDate,
+        reservedDates: $scope.reservedDates,
         status: "Pending",
       }
     }
-    ItemService.setAvailibility(availability).then(function (status) {
+    ItemService.addReservation($scope.item._id, $scope.reservedDates).then(function (status) {
       if (status) {
         ContractService.createContract(contractData).then(function (result) {
           $location.path('/items/'+result.itemId+'/contracts/'+result._id);
@@ -32,7 +27,9 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
       }
     })
   }
-  // $scope.selectDate = function (a, day) {
-  //   console.log(a, day);
-  // }
+  $scope.selectDate = function (a, day) {
+    var stringDate = day.year + '-' + day.month + '-' + day.day;
+    var selectedDate = {"date": stringDate, "is_available": false };
+    $scope.reservedDates.push(selectedDate);
+  }
 }])

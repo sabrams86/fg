@@ -7,7 +7,8 @@ var itemSchema = new mongoose.Schema({
   condition: String,
   brand: String,
   categories: Array,
-  availability: Array,
+  unAvailability: Array,
+  reservedDates: Array,
   imageUrl: String,
   userId: String
 });
