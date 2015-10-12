@@ -12,5 +12,7 @@ block content
     h4 You have a pending request for your {{item.name}}
     h4 Status: {{contract.status}}
     form
-      button(ng-click='approveContract()') Approve Rental
+      button(ng-click='updateContractStatus("Approved")') Approve Rental
+    form
+      button(ng-click='updateContractStatus("Rejected")') Reject Rental
     

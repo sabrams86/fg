@@ -22,6 +22,7 @@
     "angular": "~1.4.6",
     "angular-touch": "~1.4.6",
     "normalize.css": "~3.0.3",
-    "semantic-ui": "~2.1.4"
+    "semantic-ui": "~2.1.4",
+    "ngBookingCalendar": "*"
   }
 }

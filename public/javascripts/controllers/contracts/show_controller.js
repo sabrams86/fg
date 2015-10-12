@@ -19,10 +19,9 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
       $location.path('/items/'+result.itemId+'/contracts/'+result._id);
     })
   }
-  $scope.approveContract = function () {
-    var status = {status: 'approved'};
-    ContractService.approveContract($scope.item._id, $scope.contract._id, status).then(function (result) {
-      $scope.contract.status = 'approved';
+  $scope.updateContractStatus = function (status) {
+    ContractService.updateContractStatus($scope.item._id, $scope.contract._id, status).then(function (result) {
+      $scope.contract.status = status;
     })
   }
   $scope.deleteContract = function () {

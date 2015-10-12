@@ -17,8 +17,8 @@ function ($http, $cookies, $q) {
       return result.data;
     })
   }
-  Service.approveContract = function (itemId, contractId, status) {
-    return $http.post('http://localhost:3000/items/'+itemId+'/contracts/'+contractId+'/approve', status).then(function (result) {
+  Service.updateContractStatus = function (itemId, contractId, status) {
+    return $http.post('http://localhost:3000/items/'+itemId+'/contracts/'+contractId+'/'+status).then(function (result) {
       return result.data;
     })
   }

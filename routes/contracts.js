@@ -36,8 +36,8 @@ router.post('/contracts/:contractId/delete', function (req, res, next) {
 });
 
 //APPROVE
-router.post('/contracts/:contractId/approve', function (req, res, next) {
-  dblib.approveContract(req.params.contractId).then(function () {
+router.post('/contracts/:contractId/:status', function (req, res, next) {
+  dblib.approveContract(req.params.contractId, req.params.status).then(function () {
     res.json('OK');
   })
 });

@@ -12,13 +12,11 @@ function ($scope, $location, $cookies, UserService, ItemService, ContractService
     })
   }).then(function (userInfo) {
     ContractService.getUserContracts(userInfo._id, 'owner').then(function (userOwnerContracts) {
-      console.log(userOwnerContracts);
       $scope.ownerContracts = userOwnerContracts;
     })
     return userInfo
   }).then(function (userInfo) {
     ContractService.getUserContracts(userInfo._id, 'renter').then(function (userRenterContracts) {
-      console.log(userRenterContracts);
       $scope.renterContracts = userRenterContracts;
     })
   })
