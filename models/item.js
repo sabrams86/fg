@@ -3,6 +3,9 @@ var mongoose = require('mongoose');
 var itemSchema = new mongoose.Schema({
   name: String,
   description: String,
+  city: String,
+  state: String,
+  zip: String,
   datePurchased: String,
   condition: String,
   brand: String,

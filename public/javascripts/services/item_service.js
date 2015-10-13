@@ -33,5 +33,10 @@ app.factory('ItemService', ['$http', '$cookies', function ($http, $cookies) {
       return result;
     })
   }
+  Items.updateAvailibility = function (itemId, dates) {
+    return $http.post('http://localhost:3000/items/'+itemId+'/unavailable', dates).then(function (result) {
+      return result;
+    })
+  }
   return Items;
 }]);

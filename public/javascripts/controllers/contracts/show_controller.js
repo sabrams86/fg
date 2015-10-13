@@ -1,6 +1,7 @@
 app.controller('ShowContractsController',
 ['$scope', '$location', '$cookies', 'AuthService', 'ItemService', 'ContractService',
 function ($scope, $location, $cookies, AuthService, ItemService, ContractService) {
+  if (!$scope.userLoggedIn) $location.path('/');
   ItemService.getItem($location.path().split('/')[2]).then(function (result) {
     $scope.item = result;
   })

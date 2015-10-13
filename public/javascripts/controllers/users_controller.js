@@ -39,5 +39,10 @@ function ($scope, $location, $cookies, UserService, ItemService, ContractService
       $location.path('/users/'+result.user._id)
     })
   }
+  $scope.deleteItem = function (itemId) {
+    ItemService.deleteItem(itemId).then(function () {
+      this.item = null
+    })
+  }
 
 }])

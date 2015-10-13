@@ -5,10 +5,7 @@ block content
   form(ng-submit='createContract()')
     input(type='hidden' name='ownerId' ng-model='foo')
     input(type='hidden' name='renderId' ng-model='currentUser')
-    label(for='startDate') Pickup Date
-    input#startDate(type='date' name='startDate' ng-model='startDate')
-    label(for='endDate') Dropoff Date
-    input#endDate(type='date' name='endDate' ng-model='endDate')
+    h4 Reserve this gear from the available dates on the calendar
     .row
       fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
     .row

@@ -2,7 +2,7 @@ extends ./../../layout
 
 block content
   h5(ng-hide="currentUser") Login to Rent this!
-  h4(ng-show="currentUser != item.userId")
+  h4(ng-show="currentUser && currentUser != item.userId")
     a.dark(ng-href='/items/{{item._id}}/contracts/new') Rent it!
   h4(ng-show="currentUser == item.userId")
     a.dark(ng-href='/users/{{item.userId}}/items') Pending Rentals
@@ -24,4 +24,7 @@ block content
       h6 Categories:
       ul
         li(ng-repeat='category in item.categories') {{category}}
+    h4(ng-show="currentUser == item.userId") Set Availability
+      fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
+      button(ng-click="updateAvailibility()") Update Availability
     a(ng-href='/users/{{user_id}}/items') Back

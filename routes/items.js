@@ -6,7 +6,16 @@ var dblib = require('./../lib/items_lib');
 //ADD RESERVATION
 router.post('/items/:id/reserve', function (req, res, next) {
   dblib.addReservation(req.params.id, req.body).then(function (result) {
-    res.json(true);
+    res.json(result);
+  }, function (err) {
+    res.json(false);
+  })
+});
+
+//update UNAVAILABILITY
+router.post('/items/:id/unavailable', function (req, res, next) {
+  dblib.updateAvailability(req.params.id, req.body).then(function (result) {
+    res.json(result);
   }, function (err) {
     res.json(false);
   })
