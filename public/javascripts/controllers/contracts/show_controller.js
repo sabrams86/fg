@@ -1,6 +1,6 @@
 app.controller('ShowContractsController',
-['$scope', '$location', '$cookies', 'AuthService', 'ItemService', 'ContractService',
-function ($scope, $location, $cookies, AuthService, ItemService, ContractService) {
+['$scope', '$location', '$cookies', 'AuthService', 'ItemService', 'ContractService', 'PaymentService',
+function ($scope, $location, $cookies, AuthService, ItemService, ContractService, PaymentService) {
   if (!$scope.userLoggedIn) $location.path('/');
   ItemService.getItem($location.path().split('/')[2]).then(function (result) {
     $scope.item = result;
@@ -30,5 +30,13 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
       console.log($scope.item._id);
       $location.path('/items/'+$scope.item._id);
     })
+  }
+  $scope.payUser = function () {
+    var payload = {
+      phone: 3035184125,
+      amount: $scope.amount,
+      note: $scope.note,
+    }
+    PaymentService.makePayment(payload);
   }
 }])

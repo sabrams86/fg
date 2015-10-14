@@ -11,18 +11,22 @@ var mongoose = require('mongoose');
 
 require('dotenv').load()
 
+var sendgrid  = require('sendgrid')(process.env.SENDGRID_API);
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var items = require('./routes/items');
 var contracts = require('./routes/contracts');
 var auth = require('./routes/auth');
 var categories = require('./routes/categories');
+var mailers = require('./routes/mailers');
+var payments = require('./routes/payments');
 
 var app = express();
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://localhost:3474');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
     next();
@@ -65,6 +69,8 @@ app.use('/', auth);
 app.use('/', users);
 app.use('/', categories);
 app.use('/', items);
+app.use('/', mailers);
+app.use('/', payments);
 // app.use('/', contracts);
 //
 app.use('/users/:userId', function (req, res, next) {

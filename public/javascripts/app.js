@@ -1,6 +1,8 @@
 var app = angular.module('friendlyGear', ['ngRoute', 'ngCookies', 'jkuri.bookingcalendar']);
 
-app.config(['$routeProvider','$locationProvider', ($routeProvider, $locationProvider) => {
+app.config(['$routeProvider','$locationProvider', '$httpProvider',
+($routeProvider, $locationProvider, $httpProvider) => {
+  $httpProvider.defaults.withCredentials = true;
   $routeProvider
     .when('/', {
       templateUrl: '/partials/splash.html',
