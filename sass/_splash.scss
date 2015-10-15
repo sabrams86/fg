@@ -7,6 +7,17 @@
   }
   main{
     height: 100%;
+    .dropdown.search {
+      margin-top: 5px;
+      height: 40px;
+      border: 1px solid $green;
+    }
+    .dropdown.search:active {
+      border: 1px solid $black;
+    }
+    input {
+      height:42px;
+    }
   }
   footer{
     text-align: center;
