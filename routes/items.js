@@ -27,12 +27,6 @@ router.get('/items', function (req, res, next) {
   if (req.query.category) {
     queryArray.push({categories: {$in: [req.query.category]}});
   }
-  if (req.query.startDate) {
-    queryArray.push({startDate: {$in: [req.query.startDate]}});
-  }
-  if (req.query.endDate) {
-    queryArray.push({endDate: {$in: [req.query.endDate]}});
-  }
   if (req.query.location) {
     queryArray.push({zip: {$in: [req.query.location]}});
   }
@@ -41,9 +35,19 @@ router.get('/items', function (req, res, next) {
   } else {
     var query = {};
   }
-  console.log(query);
   dblib.getItems(query).then(function (results) {
-    res.json(results);
+    searchResults = results.filter(function (item) {
+      var startDate = req.query.startDate;
+      var endDate = req.query.endDate;
+      [1234,23423,25398,2309]
+      unAvailabilityTimeStamps = item.reservedDates.map(function (date) {
+        return new Date(date.date).getTime();
+      }).filter(function (timestamp) {
+        return (timestamp < req.query.endDate && timestamp > req.query.startDate)
+      })
+      return unAvailabilityTimeStamps.length == 0;
+    })
+    res.json(searchResults);
   })
 })
 //User Index

@@ -1,5 +1,5 @@
-app.controller('ShowItemController', ['$scope', '$cookies', '$location', 'ItemService',
-function ($scope, $cookies, $location, ItemService) {
+app.controller('ShowItemController', ['$scope', '$cookies', '$location', '$route', 'ItemService',
+function ($scope, $cookies, $location, $route, ItemService) {
   ItemService.getItem($location.path().split('/')[2]).then(function (result) {
     $scope.item = result;
   })
@@ -16,6 +16,7 @@ function ($scope, $cookies, $location, ItemService) {
     ItemService.updateAvailibility($scope.item._id, $scope.unAvailableDates).then(function (status) {
       if (status) {
         console.log(status);
+        $route.reload();
       } else {
         alert("Some of those dates have already been reserved, you may have to cancel some reservations");
       }

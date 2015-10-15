@@ -12,6 +12,9 @@ block content
   .ui.grid  
     img.gearimage.four.wide.column(ng-src='{{item.imageUrl}}' alt='broken image')
     .info.eight.wide.column
+      h4(ng-show="currentUser == item.userId") Set Availability
+        fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
+        button(ng-click="updateAvailibility()") Update Availability
       .row 
         h6.noTop Description:
         p {{item.description}}
@@ -28,7 +31,4 @@ block content
         h6 Categories:
         ul
           li(ng-repeat='category in item.categories') {{category}}
-      h4(ng-show="currentUser == item.userId") Set Availability
-        fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
-        button(ng-click="updateAvailibility()") Update Availability
       a(ng-href='/users/{{user_id}}/items') Back
