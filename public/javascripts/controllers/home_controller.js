@@ -1,6 +1,6 @@
 app.controller('HomeController', ['$scope', '$location', '$cookies', 'ItemService', 'CategoryService',
 function ($scope, $location, $cookies, ItemService, CategoryService) {
-  ItemService.getAllItems('').then(function (results) {
+  ItemService.getAllItems($location.url().split('?')[1]).then(function (results) {
     $scope.items = results;
   })
   CategoryService.getCategories().then(function (results) {

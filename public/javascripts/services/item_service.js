@@ -1,7 +1,7 @@
 app.factory('ItemService', ['$http', '$cookies', function ($http, $cookies) {
   var Items = {};
   Items.getAllItems = function (query) {
-    return $http.get('http://localhost:3000/items'+query).then(function (results) {
+    return $http.get('http://localhost:3000/items?'+query).then(function (results) {
       return results.data;
     })
   }

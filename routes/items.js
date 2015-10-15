@@ -23,10 +23,25 @@ router.post('/items/:id/unavailable', function (req, res, next) {
 
 //INDEX
 router.get('/items', function (req, res, next) {
-  var query = {};
+  var queryArray = [];
   if (req.query.category) {
-    var query = {categories: {$in: [req.query.category]}};
+    queryArray.push({categories: {$in: [req.query.category]}});
   }
+  if (req.query.startDate) {
+    queryArray.push({startDate: {$in: [req.query.startDate]}});
+  }
+  if (req.query.endDate) {
+    queryArray.push({endDate: {$in: [req.query.endDate]}});
+  }
+  if (req.query.location) {
+    queryArray.push({zip: {$in: [req.query.location]}});
+  }
+  if (queryArray.length > 0) {
+    var query = {$and: queryArray};
+  } else {
+    var query = {};
+  }
+  console.log(query);
   dblib.getItems(query).then(function (results) {
     res.json(results);
   })
