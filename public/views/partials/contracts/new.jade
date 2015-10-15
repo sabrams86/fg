@@ -7,6 +7,6 @@ block content
     input(type='hidden' name='renderId' ng-model='currentUser')
     h4 Reserve this gear from the available dates on the calendar
     .row
-      fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
+      fg-booking-calendar(ng-if=("item._id") url="http://quiet-atoll-7804.herokuapp.com/items/{{item._id}}")
     .row
       input(type='submit' value='Request Rental')

@@ -24,8 +24,8 @@ app.factory('MailService', ["$http", "$cookies", 'UserService', function ($http,
       })
     }).then(function (emailData) {
       console.log(emailData);
-      $http.post('http://localhost:3000/send', emailData.renterEmailData)
-      $http.post('http://localhost:3000/send', emailData.ownerEmailData).then(function (status) {
+      $http.post('http://quiet-atoll-7804.herokuapp.com/send', emailData.renterEmailData)
+      $http.post('http://quiet-atoll-7804.herokuapp.com/send', emailData.ownerEmailData).then(function (status) {
           return status;
       }).then(function (emailData) {
         console.log(emailData);
