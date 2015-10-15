@@ -130,6 +130,11 @@ angular.module('jkuri.bookingcalendar', [])
 				initCalendars(parseInt(scope.num, 10));
 			});
 
+			scope.update = function () {
+				initCalendars(3);
+			}
+
+
 		},
 		template:
 		'<div class="ng-multi-calendar">' +
@@ -152,7 +157,7 @@ angular.module('jkuri.bookingcalendar', [])
 		'    </div>' +
 		'    <div class="days">' +
 		'      <span ng-repeat="d in c.days">' +
-		'        <span class="day" ng-click="selectDate($event, d)" ng-class="{busy: d.busy, past: d.past_day, today: d.is_today}">{{ d.day }}</span>' +
+		'        <span class="day" ng-click="selectDate($event, d)" ng-class="{busy: d.busy, past: d.past_day, today: d.is_today, selected: d.selected}">{{ d.day }}</span>' +
 		'      </span>' +
 		'    </div>' +
 		'  </div>' +

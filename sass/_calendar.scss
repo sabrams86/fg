@@ -124,6 +124,10 @@
 	background-color: #ff5c5b;
 	color: #fff;
 }
+.ng-multi-calendar > .calendar > .days > span > span.day.selected {
+	background-color: $green;
+	color: #fff;
+}
 
 uiload {
   display: inline-block;

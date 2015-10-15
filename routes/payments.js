@@ -3,10 +3,8 @@ var router = express.Router();
 var unirest = require('unirest');
 
 router.get('/venmoLogin', function (req, res, next) {
+  
   req.session.venmo_user_token = req.query.access_token;
-  res.locals.venmo_user_token = req.query.access_token;
-  console.log(req.session);
-  console.log(res.locals);
   res.redirect('http://localhost:3474');
 })
 

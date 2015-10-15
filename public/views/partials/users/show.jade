@@ -20,8 +20,8 @@ block content
         tr(ng-repeat='ownerContract in ownerContracts')
           td {{ownerContract.item.name}}
           td {{ownerContract.status}}
-          td {{ownerContract.startDate}}
-          td {{ownerContract.endDate}}
+          td {{ownerContract.reservedDates[0].date}}
+          td {{ownerContract.reservedDates[ownerContract.reservedDates.length-1].date}}
           td
             a.dark(ng-href='/items/{{ownerContract.itemId}}/contracts/{{ownerContract._id}}') View Rental
     h4 Your Pending Rentals
@@ -37,8 +37,8 @@ block content
         tr(ng-repeat='renterContract in renterContracts')
           td {{renterContract.item.name}}
           td {{renterContract.status}}
-          td {{renterContract.startDate}}
-          td {{renterContract.endDate}}
+          td {{renterContract.reservedDates[0].date}}
+          td {{renterContract.reservedDates[renterContract.reservedDates.length-1].date}}
           td
             a.dark(href='/items/{{renterContract.itemId}}/contracts/{{renterContract._id}}') View Rental
   table
@@ -51,7 +51,7 @@ block content
         th
         th Options
     tbody
-      tr(ng-repeat='item in userItems')
+      tr(ng-repeat='item in items')
         td {{item.name}}
         td {{item.brand}}
         td

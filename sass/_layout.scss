@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+body, html {
+    height: inherit;
+}
 html {
   background: $white;
   * {
@@ -30,7 +33,7 @@ footer {
   background-color: rgba($red, .8);
 }
 main {
-  min-height: 510px;
+  min-height: 520px;
   background-size: cover;
   background-position: bottom;
   height: 100%;
@@ -42,7 +45,6 @@ main {
 .container{
   margin: 0 auto;
   width: 960px;
-  height: 100%;
   padding: 1em;
   box-sizing: border-box;
 }

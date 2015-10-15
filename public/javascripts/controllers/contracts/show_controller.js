@@ -1,12 +1,12 @@
 app.controller('ShowContractsController',
-['$scope', '$location', '$cookies', 'AuthService', 'ItemService', 'ContractService', 'PaymentService',
-function ($scope, $location, $cookies, AuthService, ItemService, ContractService, PaymentService) {
+['$scope', '$location', '$cookies', 'AuthService', 'ItemService', 'ContractService', 'UserService', 'PaymentService',
+function ($scope, $location, $cookies, AuthService, ItemService, ContractService, UserService, PaymentService) {
   if (!$scope.userLoggedIn) $location.path('/');
-  ItemService.getItem($location.path().split('/')[2]).then(function (result) {
-    $scope.item = result;
-  })
   ContractService.getContract($location.path().split('/')[2], $location.path().split('/')[4]).then(function (result) {
     $scope.contract = result;
+    ItemService.getItem(result.itemId).then(function (item) {
+      $scope.item = item;
+    })
   })
   $scope.updateContract = function () {
     var contractData = {
@@ -27,16 +27,19 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
   }
   $scope.deleteContract = function () {
     ContractService.deleteContract($scope.item._id, $scope.contract._id).then(function (result) {
-      console.log($scope.item._id);
       $location.path('/items/'+$scope.item._id);
     })
   }
   $scope.payUser = function () {
-    var payload = {
-      phone: 3035184125,
-      amount: $scope.amount,
-      note: $scope.note,
-    }
-    PaymentService.makePayment(payload);
+    UserService.getUser($scope.contract.ownerId).then(function (owner) {
+      var totalPrice = $scope.item.price * $scope.contract.reservedDates.length;
+      var note = "FriendlyGear " + $scope.item.name + " rental :)"
+      var payload = {
+        phone: owner.phone,
+        amount: totalPrice,
+        note: note,
+      }
+      PaymentService.makePayment(payload);
+    })
   }
 }])

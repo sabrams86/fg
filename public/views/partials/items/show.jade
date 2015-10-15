@@ -9,12 +9,13 @@ block content
     |  | 
     a.dark(ng-href='/items/{{item._id}}/edit') Edit
   h1 {{item.name}}
-  .ui.grid  
-    img.gearimage.four.wide.column(ng-src='{{item.imageUrl}}' alt='broken image')
+  .ui.grid
+    .four.wide.column
+      img.gearimage(ng-src='{{item.imageUrl}}' alt='broken image')
     .info.eight.wide.column
       h4(ng-show="currentUser == item.userId") Set Availability
         fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
-        button(ng-click="updateAvailibility()") Update Availability
+        button(ng-click='updateAvailibility()') Update Availability
       .row 
         h6.noTop Description:
         p {{item.description}}

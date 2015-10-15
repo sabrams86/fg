@@ -1,25 +1,11 @@
 app.controller('UsersController', ['$scope', '$location', '$cookies', 'UserService', 'ItemService', 'ContractService',
 function ($scope, $location, $cookies, UserService, ItemService, ContractService) {
-  UserService.getUser($cookies.get('user')).then(function (user) {
-    console.log(user);
-    $scope.user = user;
-    return user;
-  }, function (err) {
-    $location.path('/');
-  }).then(function (userInfo) {
-    return ItemService.getUserItems(userInfo._id).then(function (userItems) {
-      $scope.userItems = userItems;
-      return userInfo;
-    })
-  }).then(function (userInfo) {
-    ContractService.getUserContracts(userInfo._id, 'owner').then(function (userOwnerContracts) {
-      $scope.ownerContracts = userOwnerContracts;
-    })
-    return userInfo
-  }).then(function (userInfo) {
-    ContractService.getUserContracts(userInfo._id, 'renter').then(function (userRenterContracts) {
-      $scope.renterContracts = userRenterContracts;
-    })
+  UserService.getUser($cookies.get('user')).then(function (results) {
+    console.log(results);
+    $scope.user = results.user;
+    $scope.items = results.items;
+    $scope.ownerContracts = results.sellerContracts;
+    $scope.renterContracts = results.buyerContracts;
   })
 
   $scope.updateUser = function () {
