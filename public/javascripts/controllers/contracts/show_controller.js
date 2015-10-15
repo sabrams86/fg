@@ -35,11 +35,13 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
       var totalPrice = $scope.item.price * $scope.contract.reservedDates.length;
       var note = "FriendlyGear " + $scope.item.name + " rental :)"
       var payload = {
-        phone: owner.phone,
+        itemId: $scope.item._id,
+        contractId: $scope.contract._id,
+        phone: owner.user.phone,
         amount: totalPrice,
         note: note,
       }
-      PaymentService.makePayment(payload);
+      PaymentService.payWithVenmo(payload);
     })
   }
 }])

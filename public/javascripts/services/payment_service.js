@@ -1,4 +1,4 @@
-app.factory('PaymentService', ['$http', '$cookies', function ($http, $cookies) {
+app.factory('PaymentService', ['$http', '$cookies', '$window', function ($http, $cookies, $window) {
   var VenmoPayment = {};
 
   VenmoPayment.venmoLogin = function () {
@@ -8,6 +8,14 @@ app.factory('PaymentService', ['$http', '$cookies', function ($http, $cookies) {
   VenmoPayment.makePayment = function (payload) {
     return $http.post('http://localhost:3000/makePayment', payload).then(function (result) {
       console.log(result);
+    })
+  }
+
+  VenmoPayment.payWithVenmo = function (payload) {
+    console.log(payload);
+    return $http.post('http://localhost:3000/venmoLogin', payload).then(function (result) {
+      console.log('fooooooo');
+      $window.location.href = 'https://api.venmo.com/v1/oauth/authorize?client_id=2988&scope=make_payments%20access_profile';
     })
   }
 

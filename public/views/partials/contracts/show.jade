@@ -8,9 +8,11 @@ block content
     h6 You will be notified when the owner of this item has approved or rejected your request.
     form(ng-submit='deleteContract()' method='post' action='/users/{item.ownerId}/items/{item._id}/contracts/{contract._id}/delete')
       button(type='submit') Cancel Rental
-    a(href='https://api.venmo.com/v1/oauth/authorize?client_id=2988&scope=make_payments%20access_profile&foo=bar&baz=buz') Make Payment
     form(ng-submit='payUser()')
-      button(type='submit') Pay User
+      button(type='submit') Pay With Venmo
+    //- a(href='https://api.venmo.com/v1/oauth/authorize?client_id=2988&scope=make_payments%20access_profile&foo=bar&baz=buz') Make Payment
+    //- form(ng-submit='payUser()')
+    //-   button(type='submit') Pay User
   div(ng-show="currentUser == contract.ownerId")
     h4 You have a pending request for your {{item.name}}
     h4 Status: {{contract.status}}
