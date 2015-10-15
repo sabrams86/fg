@@ -23,7 +23,7 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
         ContractService.createContract(contractData).then(function (result) {
           return result;
         }).then(function (result) {
-          MailService.newContractMailer(result).then(function (result) {
+          MailService.newContractMailer(result).then(function (response) {
             $location.path('/items/'+result.itemId+'/contracts/'+result._id);
           })
         })
@@ -34,6 +34,7 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
   }
   $scope.selectDate = function (a, day) {
     var stringDate = day.year + '-' + day.month + '-' + day.day;
+    day.selected = true;
     var selectedDate = {"date": stringDate, "is_available": false };
     $scope.reservedDates.push(selectedDate);
   }

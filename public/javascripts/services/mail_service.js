@@ -13,13 +13,13 @@ app.factory('MailService', ["$http", "$cookies", 'UserService', function ($http,
       },
     }
     return UserService.getUser(contract.renterId).then(function (renter) {
-      emailData.renterEmailData.email_from = renter.email;
-      emailData.ownerEmailData.email_to = renter.email;
+      emailData.renterEmailData.email_from = renter.user.email;
+      emailData.ownerEmailData.email_to = renter.user.email;
       return emailData;
     }).then(function (emailData) {
       return UserService.getUser(contract.ownerId).then(function (owner) {
-        emailData.renterEmailData.email_to = owner.email;
-        emailData.ownerEmailData.email_from = owner.email;
+        emailData.renterEmailData.email_to = owner.user.email;
+        emailData.ownerEmailData.email_from = owner.user.email;
         return emailData;
       })
     }).then(function (emailData) {
