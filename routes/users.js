@@ -24,11 +24,9 @@ router.post('/users', function(req, res, next) {
 
 //UPDATE
 router.post('/users/:userId', function(req, res, next) {
-  dblib.validateUserUpdate(req.body.user).then(function () {
-    dblib.findOneUser(req.params.userId).then(function (user) {
-      dblib.updateUser(req.body.user, user.password).then(function (result) {
-        res.json(result);
-      })
+  dblib.findOneUser(req.params.userId).then(function (user) {
+    dblib.updateUser(req.body.user, user.password).then(function (result) {
+      res.json(result);
     })
   }, function(errors) {
     res.json({user_id: req.params.userId, user: req.body.user, errors: errors});
@@ -46,7 +44,6 @@ router.post('/users/:userId/delete', auth.authorizeUser, function(req, res, next
 
 //USER CONTRACTS
 router.get('/contracts/:id/:type', function (req, res, next) {
-  console.log('foo');
   dblib.getUserContracts(req.params.id, req.params.type).then(function (results) {
     res.json(results);
   })

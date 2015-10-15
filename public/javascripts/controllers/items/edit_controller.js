@@ -11,6 +11,7 @@ function ($scope, $cookies, $location, ItemService) {
         'condition': $scope.condition,
         'description': $scope.description,
         'imageUrl': $scope.imageUrl,
+        'price': $scope.price,
         'categories': $scope.categories,
       }
     }

@@ -21,6 +21,7 @@ function ($scope, $cookies, $location, ItemService, CategoryService, UserService
         'city': $scope.user.city,
         'state': $scope.user.state,
         'zip': $scope.user.zip,
+        'price': $scope.price,
         'categories': $scope.categories,
         'userId': $cookies.get('user')
       }

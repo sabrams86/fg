@@ -10,7 +10,8 @@ var userSchema = new mongoose.Schema({
   avatarUrl: String,
   city: String,
   state: String,
-  zip: String
+  zip: String,
+  phone: String,
 })
 
 var User = mongoose.model('User', userSchema);

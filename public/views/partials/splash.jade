@@ -19,13 +19,13 @@
           .column
             .ui.two.column.grid
               .column
-                input(type='date', name='mainSearch[startDate]')
+                input#startDate(type='date', ng-model='startDate' name='mainSearch[startDate]')
               .column
-                input(type='date', name='mainSearch[endDate]')
+                input#endDate(type='date', ng-model='endDate' name='mainSearch[endDate]')
           .column
-            searchable-category-dropdown
+            searchable-category-dropdown(ng-model='foo')
           .column
-            input(type='text', name='mainSearch[location]')
+            input(type='text', ng-model='location' name='mainSearch[location]')
         .row
           .column
           .column

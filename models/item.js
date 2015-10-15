@@ -13,6 +13,7 @@ var itemSchema = new mongoose.Schema({
   unAvailability: Array,
   reservedDates: Array,
   imageUrl: String,
+  price: Number,
   userId: String
 });
 

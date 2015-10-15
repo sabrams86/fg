@@ -15,8 +15,14 @@ app.factory('UserService', ['$http', '$cookies', '$rootScope', function ($http, 
   }
   Users.updateUser = function (userInfo, userId) {
     return $http.post('http://localhost:3000/users/'+userId, userInfo).then(function (results) {
+      console.log(results.data);
       return results.data;
     });
+  }
+  Users.deleteUser = function (userId) {
+    return $http.post('http://localhost:3000/users/'+userId+'/delete').then(function (result) {
+      return result.data;
+    })
   }
   Users.login = function (userInfo) {
     return $http.post('http://localhost:3000/login', userInfo).then(function (results) {

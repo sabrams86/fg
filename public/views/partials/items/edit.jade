@@ -8,15 +8,16 @@ block content
       .field
         label Name
         input(type='text' ng-model="name" ng-value="item.name")
-        .field
+      .field
         label Brand
         input(type='text' ng-model="brand" ng-value="item.brand")
-    .field
-      label Date Purchased
-      input(type='date' ng-model="datePurchased")
-    .field
-      label Condition
-      input(type='text' ng-model="condition" ng-value="item.condition")
+    .fields
+      .field
+        label Condition
+        input(type='text' ng-model="condition" ng-value="item.condition")
+      .field
+        label Price (in dollars)
+        input(type='number' ng-model="price" ng-value='item.price')
     .field
       button(type='submit') Save
     //- 

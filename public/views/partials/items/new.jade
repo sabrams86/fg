@@ -17,13 +17,16 @@ block content
       .field
         label Condition
         input(type='text' ng-model="condition")
+      .field
+        label Price (in dollars)
+        input(type='number' ng-model="price")
     .field
       label Image URL
       input(type='url' ng-model="imageUrl")
     .field
       label Description
       textarea(ng-model="description")
-    .field(categoryDropdown)
+    .field
       label Categories
       category-dropdown
     .field

@@ -9,6 +9,7 @@ function ($scope, $cookies, $location, UserService) {
         'city': $scope.city,
         'state': $scope.state,
         'zip': $scope.zip,
+        'phone': $scope.phone,
         'avatarUrl': $scope.avatarUrl,
         'password': $scope.password,
         'passwordconfirm': $scope.passwordconfirm,

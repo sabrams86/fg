@@ -4,7 +4,7 @@ function ($scope, $cookies, $location, CategoryService) {
     $scope.categories = results;
   })
   $scope.search = function () {
-    $location.path('/home');
+    $location.url('/home?startDate='+$("#startDate").val()+'&endDate='+$("#endDate").val()+'&category='+$('.text').html()+'&location='+$scope.location);
   }
   $scope.signUp = function () {
     $location.path('/signup');

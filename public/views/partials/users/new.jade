@@ -1,4 +1,4 @@
-extends ./../layout
+extends ./../../layout
 
 block content
   h1 Sign up as a new user
@@ -9,10 +9,13 @@ block content
         input#username(type='text' name='user[username]' ng-model='username' value=(user ? user.username: ''))
       .field  
         label(for='email') Email
-        input#email(type='email' name='user[email]' ng-model='email' value=(user ? user.email: ''))
+        input#email(type='email' name='user[email]' ng-model='email' placeholder="name@email.com" value=(user ? user.email: ''))
       .field  
         label(for='name') Name
         input#name(type='text' name='user[name]' ng-model='name' value=(user ? user.name: ''))
+      .field  
+        label(for='avatarUrl') Profile Pic (URL)
+        input#avatarUrl(type='url' name='user[avatarUrl]' ng-model='avatarUrl' placeholder="http://you.com/img.jpeg" value=(user ? user.avatarUrl: ''))
     .fields
       .field  
         label(for='city') City
@@ -23,19 +26,18 @@ block content
       .field  
         label(for='zip') Zipcode
         input#zip(type='text' name='user[zip]' ng-model='zip' value=(user ? user.zip: ''))
-    .fields
-      .field  
-        label(for='avatarUrl') Profile Pic (URL)
-        input#avatarUrl(type='url' name='user[avatarUrl]' ng-model='avatarUrl' value=(user ? user.avatarUrl: ''))
+      .field
+        label(for='phone') Phone Number
+        input#avatarUrl(type='text' name='user[phone]' ng-model='phone' placeholder="0000000000" value=(user ? user.phone: ''))
     .fields
       .field  
         label(for='password') Password
-        input#password(type='password' name='user[password]' ng-model='password')
-    .fields
+        input#password(type='password' name='user[password]' placeholder="8 Character Minimum" ng-model='password')
       .field  
         label(for='passwordconfirm') Password Confirmation
         input#passwordconfirm(type='password' name='user[passwordconfirm]' ng-model='passwordconfirm')
     .field  
       .empty
       button(type='submit') Submit
+    .row
       a.dark(href='/') Back

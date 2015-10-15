@@ -1,38 +1,39 @@
 extends ./../../layout
 
 block content
-  h1 Edit User Information
+  h1 Edit Profile Information
   form.ui.form(ng-submit="updateUser()" name='userForm')
     .fields
       .field  
         label(for='email') Email
-        input#email(type='email' name='user[email]' ng-model='email' value=(user ? user.email: ''))
+        input#email(type='email' name='user[email]' ng-model='email' placeholder="name@email.com" ng-value="user.email")
       .field  
         label(for='name') Name
-        input#name(type='text' name='user[name]' ng-model='name' value=(user ? user.name: ''))
+        input#name(type='text' name='user[name]' ng-model='name' ng-value='user.name')
+      .field  
+        label(for='avatarUrl') Profile Pic (URL)
+        input#avatarUrl(type='url' name='user[avatarUrl]' ng-model='avatarUrl' placeholder="http://you.com/img.jpeg" ng-value='user.avatarUrl')
     .fields
       .field  
         label(for='city') City
-        input#city(type='text' name='user[city]' ng-model='city' value=(user ? user.city: ''))
+        input#city(type='text' name='user[city]' ng-model='city' ng-value='user.city')
       .field  
         label(for='name') State
-        input#state(type='text' name='user[state]' ng-model='state' value=(user ? user.state: ''))
+        input#state(type='text' name='user[state]' ng-model='state' ng-value='user.state')
       .field  
         label(for='zip') Zipcode
-        input#zip(type='text' name='user[zip]' ng-model='zip' value=(user ? user.zip: ''))
-    .fields
-      .field  
-        label(for='avatarUrl') Profile Pic (URL)
-        input#avatarUrl(type='url' name='user[avatarUrl]' ng-model='avatarUrl' value=(user ? user.avatarUrl: ''))
+        input#zip(type='text' name='user[zip]' ng-model='zip' ng-value='user.zip')
+      .field
+        label(for='phone') Phone Number
+        input#avatarUrl(type='text' name='user[phone]' ng-model='phone' placeholder="0000000000" ng-value='user.phone')
     .fields
       .field  
         label(for='password') Password
-        input#password(type='password' name='user[password]' ng-model='password')
-    .fields
-      .field  
-        label(for='passwordconfirm') Password Confirmation
-        input#passwordconfirm(type='password' name='user[passwordconfirm]' ng-model='passwordconfirm')
+        input#password(type='password' name='user[password]' placeholder="8 Character Minimum" ng-model='password')
     .field  
       .empty
-      button(type='submit') Submit
+      button(type='submit') Update Info
+      button(ng-click="deleteUser(user._id)") Delete user
+    .row
       a.dark(href='/') Back
+    
