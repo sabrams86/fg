@@ -4,7 +4,7 @@ block content
   h2 Contract Details:
   div(ng-show="currentUser == contract.renterId")
     h4 You have requested to rent {{item.name}}
-    h3(ng-show="contract.status == 'Pending' || contract.status == 'Approved'") Total Price to Be Paid: ${{item.price + contract.reservedDates.length}}
+    h3(ng-show="contract.status == 'Pending' || contract.status == 'Approved'") Total Price: ${{item.price + contract.reservedDates.length}}
     h3 Start Date: {{contract.reservedDates[0].date}}
     h3 End Date: {{contract.reservedDates[contract.reservedDates.length-1].date}}
     h4 Status: {{contract.status}}
@@ -18,7 +18,7 @@ block content
       button.ui.blue.button(type='submit') Return Gear
   div(ng-show="currentUser == contract.ownerId")
     h4 You have a pending request for your {{item.name}}
-    h3(ng-show="contract.status == 'Pending' || contract.status == 'Approved'") Total Price to Be Paid upon Pickup: ${{item.price + contract.reservedDates.length}}
+    h3(ng-show="contract.status == 'Pending' || contract.status == 'Approved'") Total Price: ${{item.price + contract.reservedDates.length}}
     h4 Start Date: {{contract.reservedDates[0].date}}
     h4 End Date: {{contract.reservedDates[contract.reservedDates.length-1].date}}
     h4 Status: {{contract.status}}
