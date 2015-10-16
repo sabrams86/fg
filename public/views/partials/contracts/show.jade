@@ -4,20 +4,29 @@ block content
   h2 Contract Details:
   div(ng-show="currentUser == contract.renterId")
     h4 You have requested to rent {{item.name}}
+    h3(ng-show="contract.status == 'Pending' || contract.status == 'Approved'") Total Price to Be Paid: ${{item.price + contract.reservedDates.length}}
+    h3 Start Date: {{contract.reservedDates[0].date}}
+    h3 End Date: {{contract.reservedDates[contract.reservedDates.length-1].date}}
     h4 Status: {{contract.status}}
     h6 You will be notified when the owner of this item has approved or rejected your request.
-    form(ng-submit='deleteContract()' method='post' action='/users/{item.ownerId}/items/{item._id}/contracts/{contract._id}/delete')
-      button(type='submit') Cancel Rental
-    form(ng-submit='payUser()')
-      button(type='submit') Pay With Venmo
-    //- a(href='https://api.venmo.com/v1/oauth/authorize?client_id=2988&scope=make_payments%20access_profile&foo=bar&baz=buz') Make Payment
-    //- form(ng-submit='payUser()')
-    //-   button(type='submit') Pay User
+    p(ng-show="contract.status == 'Approved'") You have approved this rental.  When your renter comes to pick up your gear, have them jump onto the website and click "Pickup and Pay".
+    form(ng-submit='deleteContract()' ng-show="contract.status == 'Pending'" method='post' action='/users/{item.ownerId}/items/{item._id}/contracts/{contract._id}/delete')
+      button.ui.brown.button(type='submit') Cancel Rental
+    form(ng-submit='payUser()' ng-show="contract.status == 'Approved'")
+      button.ui.green.button(type='submit') Pickup and Pay With Venmo
+    form(ng-submit='updateContractStatus("Returned")' ng-show="contract.status == 'In Use'")
+      button.ui.blue.button(type='submit') Return Gear
   div(ng-show="currentUser == contract.ownerId")
     h4 You have a pending request for your {{item.name}}
+    h3(ng-show="contract.status == 'Pending' || contract.status == 'Approved'") Total Price to Be Paid upon Pickup: ${{item.price + contract.reservedDates.length}}
+    h4 Start Date: {{contract.reservedDates[0].date}}
+    h4 End Date: {{contract.reservedDates[contract.reservedDates.length-1].date}}
     h4 Status: {{contract.status}}
-    form
-      button(ng-click='updateContractStatus("Approved")') Approve Rental
-    form
-      button(ng-click='updateContractStatus("Rejected")') Reject Rental
-    form
+    p(ng-show="contract.status == 'Approved'") Your rental request has been approved!  When you pick up your gear make sure to jump on friendlygear and pay your friend!
+    p(ng-show="contract.status == 'Rejected'") Sorry, it looks like the owner of this gear can't rent it to you during the requested dates.
+    form(ng-show="contract.status == 'Pending'")
+      button.ui.blue.button(ng-click='updateContractStatus("Approved")') Approve Rental
+    form(ng-show="contract.status == 'Pending'")
+      button.ui.red.button(ng-click='updateContractStatus("Rejected")') Reject Rental
+    form(ng-submit='updateContractStatus("Complete")' ng-show="contract.status == 'Returned'")
+      button.ui.blue.button(type='submit') Mark Rental Completed

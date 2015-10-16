@@ -42,6 +42,7 @@ function ($scope, $location, $cookies, AuthService, ItemService, ContractService
         note: note,
       }
       PaymentService.payWithVenmo(payload);
+      $scope.updateContractStatus("In Use");
     })
   }
 }])
