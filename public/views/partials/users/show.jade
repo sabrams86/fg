@@ -7,8 +7,8 @@ block content
   p
   img.avatar(ng-src='{{user.avatarUrl}}' alt='profile pic')
   .col8
-    h4.noTop Rental Requests
-    table.rentals
+    user-tabs
+    table.rentals.ui.bottom.attached.tab.segment.active(data-tab="third")
       thead
         tr
           th Item
@@ -24,8 +24,7 @@ block content
           td {{ownerContract.reservedDates[ownerContract.reservedDates.length-1].date}}
           td
             a.dark(ng-href='/items/{{ownerContract.itemId}}/contracts/{{ownerContract._id}}') View Rental
-    h4 Your Pending Rentals
-    table.rentals
+    table.rentals.ui.bottom.attached.tab.segment(data-tab="second")
       thead
         tr
           th Item
@@ -41,25 +40,23 @@ block content
           td {{renterContract.reservedDates[renterContract.reservedDates.length-1].date}}
           td
             a.dark(href='/items/{{renterContract.itemId}}/contracts/{{renterContract._id}}') View Rental
-  table
-  h3 Your Gear
-  table
-    thead
-      tr
-        th Name
-        th Brand
-        th
-        th Options
-    tbody
-      tr(ng-repeat='item in items')
-        td {{item.name}}
-        td {{item.brand}}
-        td
-          img.gearlistthumbnail(ng-src='{{item.imageUrl}}' alt='broken image')
-        td
-          a.dark(ng-href='/items/{{item._id}}') Show 
-          |  | 
-          a.dark(ng-href='/items/{{item._id}}/edit') Edit
-          |  | 
-          a.dark(href='#' ng-click='deleteItem(item)') Delete
-            
+    table.ui.bottom.attached.tab.segment(data-tab="first")
+      thead
+        tr
+          th Name
+          th Brand
+          th
+          th Options
+      tbody
+        tr(ng-repeat='item in items')
+          td {{item.name}}
+          td {{item.brand}}
+          td
+            img.gearlistthumbnail(ng-src='{{item.imageUrl}}' alt='broken image')
+          td
+            a.dark(ng-href='/items/{{item._id}}') Show 
+            |  | 
+            a.dark(ng-href='/items/{{item._id}}/edit') Edit
+            |  | 
+            a.dark(href='#' ng-click='deleteItem(item)') Delete
+              
