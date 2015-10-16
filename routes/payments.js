@@ -19,7 +19,7 @@ router.get('/makePayment', function (req, res, next) {
   .send({ "access_token": req.query.access_token, "phone": req.session.phone, "amount": req.session.amount, "note": req.session.note })
   .end(function (response) {
     console.log(response.body);
-    res.redirect('http://localhost:3474/items/'+req.session.itemId+'/contracts/'+req.session.contractId);
+    res.redirect('http://friendlygear.com/items/'+req.session.itemId+'/contracts/'+req.session.contractId);
   });
 });
 
