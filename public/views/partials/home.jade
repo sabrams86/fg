@@ -1,16 +1,39 @@
 extends ./../layout
 
 block leftside
-  div.white(ng-repeat="category in categories")
-    a.white(href="#" ng-click="filterCategory(category)") {{category.name}}
+  .searchhelper
+    h5 Results Options
+    .row
+      button.mini.ui.grey.button(ng-click='orderByPrice()') Price&nbsp;&nbsp;
+        i.fa.fa-caret-up(ng-hide='orderDir == "reverse"')
+        i.fa.fa-caret-down(ng-show='orderDir == "reverse"')
+    input#searchfilter.mini.ui.input(ng-model='textSearch' placeholder='Search in Results')
+  .searchhelper
+    h5 Search Options
+    .row
+      label(for='when') Dates
+    .row
+      input#startdate.mini.ui.input(type='date', ng-model='startDate' name='mainSearch[startDate]')
+    .row  
+      input#enddate.mini.ui.input(type='date', ng-model='endDate' name='mainSearch[endDate]')
+    .row
+      label(for='what') Activity
+    .row
+      searchable-category-dropdown#what.mini.ui.input(ng-model='foo')
+    .row  
+      label(for='where') Location
+    .row
+      input#where.searchfilter.mini.ui.input(type='text', ng-model='location' name='mainSearch[location]')
+    .row
+      button.mini.ui.grey.button(ng-click='search()') Search
 block content
-  .listing(ng-repeat="item in items track by $index")
+  .listing.animated.zoomIn(ng-repeat="item in items | filter: textSearch | orderBy: order: orderDir track by $index")
       p
         h6
           a(ng-href='/items/{{item._id}}') {{item.name}}
       p.description {{item.description}}
       a(href='/items/{{item._id}}' ng-show='item.imageUrl')
         img.gearthumbnail(src='{{item.imageUrl}}' alt='broken image')
-      a(href='/items/{{item._id}}' ng-show='item.imageUrl')    
+      a(href='/items/{{item._id}}')    
         h5.white ${{item.price}} / Day
       

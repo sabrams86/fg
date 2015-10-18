@@ -138,12 +138,6 @@ angular.module('jkuri.bookingcalendar', [])
 		},
 		template:
 		'<div class="ng-multi-calendar">' +
-		'  <div class="ng-multi-calendar-select">' +
-		'    <label>{{ numMonthsText }}' +
-		'    <select ng-model="num" ng-options="n for n in displayMonthsOpts">' +
-		'    </select>' +
-		'    </label>' +
-		'  </div>' +
 		'  <div class="ng-multi-calendar-loader" ng-show="loading"><div class="uil-ring-css"><div></div></div></div>' +
 		'  <div class="left">' +
 		'    <i class="fa fa-angle-left" ng-click="prevMonth()"></i>' +

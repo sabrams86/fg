@@ -12,7 +12,16 @@
 }
 .gearimage {
   border: 2px solid $grey;
+  border-radius: 5px;
   vertical-align: top;
   display: inline-block;
   width: 100%;
+}
+.contractimage {
+  display: inline-block;
+  width: 48%;
+  border: 2px solid $grey;
+  border-radius: 5px;
+  vertical-align: top;
+  margin-left: 20px;
 }

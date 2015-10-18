@@ -15,6 +15,9 @@
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
+  animation-duration: .3s;
+  -webkit-animation-duration: .3s;
+  -chrome-animation-duration: .3s;
 }
 .gearthumbnail {
   height: 100px;
@@ -31,4 +34,12 @@
   a{
     text-decoration: none;
   }
+}
+.listing.ng-leave {
+  -webkit-animation: .9s zoomOut ease;
+  animation: 0.9s zoomOut ease;
+}
+.listing.ng-change {
+  -webkit-animation: .9s slideInRight ease;
+  animation: 0.9s slideInRight ease;
 }
