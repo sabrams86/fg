@@ -13,7 +13,7 @@ block content
   h4(ng-show="currentUser == item.userId") Set Availability
     br
     br
-    fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
+    fg-booking-calendar(ng-if=("item._id") url="http://fg.abramswebdevelopment.com/items/{{item._id}}")
     button(ng-click='updateAvailibility()') Update Availability
   .ui.grid
     .six.wide.column
