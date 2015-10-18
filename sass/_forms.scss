@@ -93,3 +93,19 @@ input.sml {
 #categories {
   width: 20%;
 }
+#where, #when, #startdate, #enddate {
+  width: 100%;
+  margin-left: 0;
+}
+#searchfilter {
+  width: 100%;
+  margin-left: 0;
+}
+#what .ui.selection.dropdown{
+  min-width: 130px;
+  border: 1px solid $green;
+}
+.searchhelper {
+  width: 150px;
+  margin-bottom: 20px;
+}

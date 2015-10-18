@@ -19,4 +19,9 @@ function ($scope, $location, $cookies, ItemService, CategoryService) {
       $scope.items = results
     })
   }
+  $scope.search = function () {
+    var startDate = new Date($("#startDate").val()).getTime();
+    var endDate = new Date($("#endDate").val()).getTime();
+    $location.url('/home?startDate='+startDate+'&endDate='+endDate+'&category='+$('.text').html()+'&location='+$scope.location);
+  }
 }]);
