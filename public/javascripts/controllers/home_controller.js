@@ -6,6 +6,11 @@ function ($scope, $location, $cookies, ItemService, CategoryService) {
   CategoryService.getCategories().then(function (results) {
     $scope.categories = results;
   })
+  $scope.order = 'price';
+  $scope.orderDir = '';
+  $scope.orderByPrice = function () {
+    $scope.orderDir = ($scope.orderDir === '') ? 'reverse' : '';
+  }
   $scope.newItem = function() {
     $location.path('/items/new');
   }

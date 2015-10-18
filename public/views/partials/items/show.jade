@@ -5,26 +5,27 @@ block content
   h4(ng-show="currentUser && currentUser != item.userId")
     a.dark(ng-href='/items/{{item._id}}/contracts/new') Rent it!
   h4(ng-show="currentUser == item.userId")
-    a.dark(ng-href='/users/{{item.userId}}/items') Pending Rentals
+    a.dark(ng-href='/users/{{item.userId}}') Pending Rentals
     |  | 
     a.dark(ng-href='/items/{{item._id}}/edit') Edit
-  h1 {{item.name}}
+  h1 {{item.name}} 
+    small    ${{item.price}} / Day
+  h4(ng-show="currentUser == item.userId") Set Availability
+    br
+    br
+    fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
+    button(ng-click='updateAvailibility()') Update Availability
   .ui.grid
-    .four.wide.column
+    .six.wide.column
       img.gearimage(ng-src='{{item.imageUrl}}' alt='broken image')
-    .info.eight.wide.column
-      h4(ng-show="currentUser == item.userId") Set Availability
-        fg-booking-calendar(ng-if=("item._id") url="http://localhost:3000/items/{{item._id}}")
-        button(ng-click='updateAvailibility()') Update Availability
+      a.white(ng-href='/users/{{user_id}}/items') Back
+    .info.eight.wide.column.item-info
       .row 
         h6.noTop Description:
         p {{item.description}}
       .row 
         h6 Brand:
         p {{item.brand}}
-      .row 
-        h6 Price per day:
-        p {{item.price}}
       .row
         h6 Condition:
         p {{item.condition}}
@@ -32,4 +33,3 @@ block content
         h6 Categories:
         ul
           li(ng-repeat='category in item.categories') {{category}}
-      a(ng-href='/users/{{user_id}}/items') Back

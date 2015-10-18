@@ -1,16 +1,22 @@
 extends ./../layout
 
 block leftside
+  h5 Search Options
+  button.mini.ui.button(ng-click='orderByPrice()') Price&nbsp;&nbsp;
+    i.fa.fa-caret-up(ng-hide='orderDir == "reverse"')
+    i.fa.fa-caret-down(ng-show='orderDir == "reverse"')
+  div
+    input.mini.ui.input.search(ng-model='textSearch' placeholder='Search in Results')
   div.white(ng-repeat="category in categories")
     a.white(href="#" ng-click="filterCategory(category)") {{category.name}}
 block content
-  .listing(ng-repeat="item in items track by $index")
+  .listing.animated.zoomIn(ng-repeat="item in items | filter: textSearch | orderBy: order: orderDir track by $index")
       p
         h6
           a(ng-href='/items/{{item._id}}') {{item.name}}
       p.description {{item.description}}
       a(href='/items/{{item._id}}' ng-show='item.imageUrl')
         img.gearthumbnail(src='{{item.imageUrl}}' alt='broken image')
-      a(href='/items/{{item._id}}' ng-show='item.imageUrl')    
+      a(href='/items/{{item._id}}')    
         h5.white ${{item.price}} / Day
       

@@ -6,9 +6,9 @@ block content
     a.dark(href='/items/new') Add a new item
   p
   img.avatar(ng-src='{{user.avatarUrl}}' alt='profile pic')
-  .col8
+  .col8.user-tabs
     user-tabs
-    table.rentals.ui.bottom.attached.tab.segment.active(data-tab="third")
+    table.rentals.ui.bottom.attached.tab.segment(data-tab="third")
       thead
         tr
           th Item
@@ -40,7 +40,7 @@ block content
           td {{renterContract.reservedDates[renterContract.reservedDates.length-1].date}}
           td
             a.dark(href='/items/{{renterContract.itemId}}/contracts/{{renterContract._id}}') View Rental
-    table.ui.bottom.attached.tab.segment(data-tab="first")
+    table.rentals.ui.bottom.attached.tab.segment.active(data-tab="first")
       thead
         tr
           th Name

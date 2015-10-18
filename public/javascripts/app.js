@@ -1,4 +1,4 @@
-var app = angular.module('friendlyGear', ['ngRoute', 'ngCookies', 'jkuri.bookingcalendar']);
+var app = angular.module('friendlyGear', ['ngRoute', 'ngCookies', 'jkuri.bookingcalendar', 'ngAnimate']);
 
 app.config(['$routeProvider','$locationProvider', '$httpProvider',
 ($routeProvider, $locationProvider, $httpProvider) => {
