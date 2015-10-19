@@ -18,9 +18,9 @@ function ($scope, $cookies, $location, ItemService, CategoryService, UserService
         'datePurchased': $scope.datePurchased,
         'description': $scope.description,
         'imageUrl': $scope.imageUrl,
-        'city': $scope.user.city,
-        'state': $scope.user.state,
-        'zip': $scope.user.zip,
+        'city': $scope.user.user.city,
+        'state': $scope.user.user.state,
+        'zip': $scope.user.user.zip,
         'price': $scope.price,
         'categories': $scope.categories,
         'userId': $cookies.get('user')
