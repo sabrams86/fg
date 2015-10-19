@@ -35,7 +35,7 @@ function ($scope, $location, $cookies, UserService, ItemService, ContractService
   }
   $scope.deleteItem = function (item) {
     ItemService.deleteItem(item._id).then(function () {
-      $scope.userItems.splice(item);
+      $scope.items.splice(item);
     })
   }
 
