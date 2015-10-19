@@ -18,10 +18,10 @@
             label(for='where') Where do you want to do it?
         .row
           .column
-            .ui.two.column.grid
-              .column
+            .ui.two.column.grid.splash-date-grid
+              .column.splash-date-column
                 input#startDate(type='date', ng-model='startDate' name='mainSearch[startDate]')
-              .column
+              .column.splash-date-column
                 input#endDate(type='date', ng-model='endDate' name='mainSearch[endDate]')
           .column
             searchable-category-dropdown(ng-model='foo')
