@@ -1,7 +1,6 @@
 app.controller('UsersController', ['$scope', '$location', '$cookies', 'UserService', 'ItemService', 'ContractService',
 function ($scope, $location, $cookies, UserService, ItemService, ContractService) {
   UserService.getUser($cookies.get('user')).then(function (results) {
-    console.log(results);
     $scope.user = results.user;
     $scope.items = results.items;
     $scope.ownerContracts = results.sellerContracts;
@@ -35,7 +34,7 @@ function ($scope, $location, $cookies, UserService, ItemService, ContractService
   }
   $scope.deleteItem = function (item) {
     ItemService.deleteItem(item._id).then(function () {
-      $scope.items.splice(item);
+      $scope.items.splice(item, 1);
     })
   }
 
