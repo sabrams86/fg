@@ -2,30 +2,30 @@ app.factory('UserService', ['$http', '$cookies', '$rootScope', function ($http, 
   var Users = {};
 
   Users.getUser = function (userId) {
-    return $http.get('http://quiet-atoll-7804.herokuapp.com/users/' + userId).then(function (result) {
+    return $http.get('http://fg.abramswebdevelopment.com//users/' + userId).then(function (result) {
       return result.data;
     });
   }
   Users.signUpUser = function (userInfo) {
-    return $http.post('http://quiet-atoll-7804.herokuapp.com/users', userInfo).then(function (results) {
+    return $http.post('http://fg.abramswebdevelopment.com//users', userInfo).then(function (results) {
       $cookies.put('user', results.data._id);
       $rootScope.userLoggedIn = true;
       return results.data;
     });
   }
   Users.updateUser = function (userInfo, userId) {
-    return $http.post('http://quiet-atoll-7804.herokuapp.com/users/'+userId, userInfo).then(function (results) {
+    return $http.post('http://fg.abramswebdevelopment.com//users/'+userId, userInfo).then(function (results) {
       console.log(results.data);
       return results.data;
     });
   }
   Users.deleteUser = function (userId) {
-    return $http.post('http://quiet-atoll-7804.herokuapp.com/users/'+userId+'/delete').then(function (result) {
+    return $http.post('http://fg.abramswebdevelopment.com//users/'+userId+'/delete').then(function (result) {
       return result.data;
     })
   }
   Users.login = function (userInfo) {
-    return $http.post('http://quiet-atoll-7804.herokuapp.com/login', userInfo).then(function (results) {
+    return $http.post('http://fg.abramswebdevelopment.com//login', userInfo).then(function (results) {
       $cookies.put('user', results.data._id);
       $rootScope.userLoggedIn = true;
       return results.data

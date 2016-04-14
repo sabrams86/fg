@@ -14,7 +14,7 @@ block content
       img.gearimage(ng-src='{{item.imageUrl}}' alt='broken image')
     .info.eight.wide.column
       h4(ng-show="currentUser == item.userId") Set Availability
-        fg-booking-calendar(ng-if=("item._id") url="http://quiet-atoll-7804.herokuapp.com/items/{{item._id}}")
+        fg-booking-calendar(ng-if=("item._id") url="http://fg.abramswebdevelopment.com//items/{{item._id}}")
         button(ng-click='updateAvailibility()') Update Availability
       .row 
         h6.noTop Description:

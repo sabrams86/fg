@@ -1,7 +1,7 @@
 app.factory('AuthService', ['$http', '$cookies', '$q', function ($http, $cookies, $q) {
   var Auth = {};
   Auth.login = function (userInfo) {
-    return $http.post('http://quiet-atoll-7804.herokuapp.com/login', userInfo).then(function (results) {
+    return $http.post('http://fg.abramswebdevelopment.com//login', userInfo).then(function (results) {
       $cookies.put('user', results.data._id);
       return true;
     })
